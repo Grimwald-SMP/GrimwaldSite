@@ -1,103 +1,120 @@
+import CountUp from "@/app/ui/CountUp";
 import Image from "next/image";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Grimwald SMP - Quality Minecraft Server",
+    description: "Grimwald SMP, a Whitelist-only server that focuses on quality members over the quantity of members.",
+};
+
+const features = [
+    {
+        title: "No Conflict",
+        description: "Because of our selective application process, you don't have to worry about your builds being griefed or having your items stolen.",
+        image: "/builds/s21/DragonShrine.png"
+    },
+    {
+        title: "Trusting community.",
+        description: "Because of our trusting community, we don't use land claim, you can build anywhere you want. Don't worry though, your builds are still safe from griefing because all block actions are logged.",
+        image: "/builds/s19/Factory.png"
+    },
+    {
+        title: "Democratic",
+        description: "All major decisions for the server are voted on by the community members so that everyone has a good experience on the server.",
+        image: "/builds/s21/CilseyCity2.png"
+    },
+    {
+        title: "Vanilla+",
+        description: "We have a nice balance of server plugins that will improve your experience but not take away from the enjoyment that comes from pure vanilla gameplay.",
+        image: "/builds/s21/RuralBuild.png"
+    },
+    {
+        title: "Equal for everyone",
+        description: "We are against pay-to-win server mechanics, everyone has the same opportunity to do great things on this server.",
+        image: "/builds/s21/IslandBuild.png"
+    },
+    {
+        title: "Dictator-free",
+        description: "Ownership is split on this server and admin actions are moderated, so you won't run into toxic admin-abuse.",
+        image: "/builds/s21/ElmoBuild.png"
+    },
+    {
+        title: "Season-based",
+        description: "We run the worlds in seasons and the community votes on when we move onto a new season, so you won't feel left behind.",
+        image: "/builds/s21/CTF2.png"
+    },
+    {
+        title: "Diverse",
+        description: "We welcome all types of players, from beginners to experienced players. We have members from all over the world and with different playstyles.",
+        image: "/builds/s19/Castle.png"
+    },
+] as const;
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    return (
+        <div className="min-h-screen flex flex-col items-center">
+            {/* Hero */}
+            <section
+                className="w-full flex flex-col mx-fill items-center justify-center text-center gap-4 py-12 md:py-20 bg-neutral-200"
+            >
+                <h1 className="text-3xl md:text-5xl font-bold text-neutral-content">Quality Members, <br/>Quality Server
+                </h1>
+                <p className="text-md md:text-lg px-4 max-w-sm md:max-w-xl">Grimwald SMP, a Whitelist-only server that
+                    focuses on quality members over the quantity of members. Apply now to experience our welcoming
+                    community of passionate players!</p>
+                <div className="flex gap-4 mt-2">
+                    <a href="/about" className="btn btn-dash btn-secondary">Learn More</a>
+                    <a href="/apply" className="btn btn-primary">Apply Now</a>
+                </div>
+            </section>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            {/* Features */}
+            <section id="features"
+                     className="flex flex-col items-center justify-center text-center gap-4 py-10 md:py-14">
+                <h1 className="text-3xl md:text-4xl text-neutral-content font-semibold">What makes us different?</h1>
+                <div className="max-w-6xl px-4 grid grid-cols-1 gap-8 md:grid-cols-2 py-8 md:py-10">
+                    {features.map((feature) => (
+                        <div key={feature.title}
+                             className="card card-border border-neutral-200 border-3 bg-base-200 w-80 md:w-90 shadow-sm">
+                            <figure>
+                                <Image 
+                                    src={feature.image} 
+                                    alt={feature.title}
+                                    width={360}
+                                    height={240}
+                                    loading="lazy"
+                                    className="object-cover"
+                                />
+                            </figure>
+                            <div className="card-body">
+                                <h2 className="card-title">{feature.title}</h2>
+                                <p className="text-left">{feature.description}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            {/* Counters */}
+            <section
+                className="w-full flex flex-col bg-base-200 items-center justify-center text-center gap-4 py-10 md:py-14">
+                <h1 className="text-3xl md:text-4xl text-neutral-content font-semibold">Current Season</h1>
+                <div className="px-4">
+                    <p className="max-w-sm pb-4">Grimwald SMP has been around since 2020, starting off as a group of friends with more people joining throughout the years.</p>
+                    <p className="max-w-sm">We are currently on <span
+                        className="font-semibold text-neutral-50">Season 21</span> with this being our longest season
+                        yet.
+                        We are experimenting with the idea of longer seasons to give members the opportunity to work on
+                        larger projects.</p>
+                </div>
+
+                <div className="pt-5 flex flex-col items-center justify-center space-y-4">
+                    <h3 className="text-2xl text-neutral-50 font-semibold">Season Age</h3>
+                    <CountUp startEpoch={1738944720}/>
+                    <h3 className="text-2xl text-neutral-50 font-semibold">Server Age</h3>
+                    <CountUp startEpoch={1600095600}/>
+                </div>
+            </section>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+    );
 }

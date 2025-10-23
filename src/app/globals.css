@@ -1,26 +1,29 @@
 @import "tailwindcss";
+@plugin "daisyui" {
+    themes: halloween --default;
+}
+@plugin "daisyui/theme" {
+    name: "halloween";
+    default: true;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --color-primary: #FF7A00;
+    --color-primary-content: #0A0A0A;
+    --color-secondary: #0099A8;
+    --color-secondary-content: #0A0A0A;
+    --color-accent: #7048E8;
+    --color-accent-content: #FFFFFF;
+
+    --color-neutral-50: #b87749;
+    --color-neutral: #593821;
+    --color-neutral-200: #2e2721;
+
+    --color-base-100: #1c1c1c;
+    --color-base-200: #171717;
+    --color-base-300: #121212;
+    --color-base-content: #FFFFFF;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@theme {
+    --color-base-50: #262626;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }
