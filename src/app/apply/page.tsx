@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function page() {
     return (
         <div className="flex flex-col items-center justify-center">
@@ -23,7 +25,7 @@ export default function page() {
                             <li>No hacked clients or unfair mods</li>
                         </ul>
 
-                        <a href="/rules" className="btn btn-secondary btn-dash mt-2">Read Rules</a>
+                        <Link href="/rules" className="btn btn-secondary btn-dash mt-2">Read Rules</Link>
                     </div>
 
                     <div className="divider lg:divider-horizontal"></div>
@@ -35,14 +37,14 @@ export default function page() {
                             <li>Fill out the application questions during the onboarding.</li>
                             <li>Wait for a staff member to review your application.</li>
                         </ol>
-                        <a
+                        <Link
                             href="https://discord.gg/fzVqVXHq45"
                             className="btn btn-accent mt-6"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
                             Join Discord
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </section>
