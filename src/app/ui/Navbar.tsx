@@ -33,7 +33,7 @@ export default function Navbar() {
             </div>
 
             <div className="navbar-center">
-                <a href="/">
+                <Link href="/">
                     {/* Mobile logo */}
                     <Image
                         src="/GrimwaldSMPFull.png"
@@ -53,7 +53,7 @@ export default function Navbar() {
                         className="hidden lg:block mx-auto"
                         priority
                     />
-                </a>
+                </Link>
             </div>
 
             <div className="navbar-end">

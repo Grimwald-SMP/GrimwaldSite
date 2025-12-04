@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Page() {
     return (
@@ -12,7 +13,7 @@ export default function Page() {
                 <p className="pt-5 max-w-sm md:max-w-md">The page you are looking for might have been removed, had its name changed,
                     or is
                     temporarily unavailable.</p>
-                <a href="/" className="btn btn-primary btn-lg mt-5">Go home</a>
+                <Link href="/" className="btn btn-primary btn-lg mt-5">Go home</Link>
             </div>
         </div>
     )

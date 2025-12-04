@@ -1,5 +1,8 @@
 "use client"
 
+import Link from "next/link";
+import Image from "next/image";
+
 export default function page() {
     const staff = [
         {
@@ -75,7 +78,7 @@ export default function page() {
                     {staff.map((staffMember, index) => (
                         <div key={index}
                              className="card card-border border-neutral-200 border-3 bg-base-200 w-70 md:w-80 shadow-sm">
-                            <figure className="pt-3"><img src={staffMember.image} alt={staffMember.name}/></figure>
+                            <figure className="pt-3"><Image src={staffMember.image} alt={staffMember.name}/></figure>
                             <div className="card-body text-left items-start">
                                 <h2 className="card-title">{staffMember.name} <span
                                     className="text-neutral-content">({staffMember.ign})</span></h2>
@@ -87,15 +90,15 @@ export default function page() {
                                     <div className="card-actions justify-start gap-2 mt-2">
                                         {staffMember.socials.map((social, idx) => (
                                             social.href ? (
-                                                <a key={idx} href={social.href}
+                                                <Link key={idx} href={social.href}
                                                    className="btn btn-sm btn-square btn-outline">
-                                                    <img src={`https://cdn.simpleicons.org/${social.icon}/white`}
+                                                    <Image src={`https://cdn.simpleicons.org/${social.icon}/white`}
                                                          alt={social.icon} className="w-4 h-4"/>
-                                                </a>
+                                                </Link>
                                             ) : social.copyable ? (
                                                 <button key={idx} className="btn btn-sm btn-square btn-dash"
                                                         onClick={() => navigator.clipboard.writeText(social.value)}>
-                                                    <img src={`https://cdn.simpleicons.org/${social.icon}/white`}
+                                                    <Image src={`https://cdn.simpleicons.org/${social.icon}/white`}
                                                          alt={social.icon} className="w-4 h-4"/>
                                                 </button>
                                             ) : null

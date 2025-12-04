@@ -18,7 +18,7 @@ export default function TimelinePage() {
           Grimwald SMP Timeline
         </h1>
         <p className="max-w-lg text-center text-sm md:text-base text-neutral-content/80">
-          Here's a large look at the history of the Grimwald SMP.
+          Here&apos;s a large look at the history of the Grimwald SMP.
         </p>
 
         <nav className="flex flex-wrap justify-center gap-2 md:gap-4 max-w-lg mt-6" aria-label="Season navigation">
