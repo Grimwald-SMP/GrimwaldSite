@@ -1,23 +1,17 @@
 "use client"
 
-import Link from "next/link";
 import Image from "next/image";
 
 export default function page() {
     const staff = [
         {
-            name: 'Jaden',
+            name: 'Roc',
             ign: 'ThisIsRoc',
             role: 'Owner',
             roleColor: "#8f41bf",
             title: 'Server Administrator',
-            description: "Manages the server as well as creating Discord bots, plugins, and this website.",
-            image: 'https://s.namemc.com/3d/skin/body.png?id=c6e6f83edc631d7e&model=classic&theta=30&phi=21&time=90&width=150&height=250',
-            socials: [
-                {icon: 'protonmail', href: 'mailto:jadenlabs@proton.me'},
-                {icon: 'github', href: 'https://github.com/JadenLabs'},
-                {icon: 'discord', value: 'roc.py', copyable: true},
-            ]
+            description: "Manages the technical aspects of the server such as creating Discord bots, plugins, and the website.",
+            image: '/staff/roc.png',
         },
         {
             name: 'Bri',
@@ -26,7 +20,7 @@ export default function page() {
             roleColor: "#8f41bf",
             title: 'Community Manager',
             description: 'Manages the community by creating events, running polls, and recruiting new members.',
-            image: 'https://s.namemc.com/3d/skin/body.png?id=ae8543a65415ac30&model=slim&theta=30&phi=21&time=90&width=150&height=250'
+            image: '/staff/bri.png'
         },
         {
             name: 'Benny',
@@ -34,17 +28,26 @@ export default function page() {
             role: 'Founder',
             roleColor: "#bf41b9",
             title: 'Grimwald',
-            description: 'Founder of the Grimwald SMP and owner for 5 years. Passed ownership to Jaden and Bri early 2025. Also assists in various technical aspects of the server.',
-            image: 'https://s.namemc.com/3d/skin/body.png?id=db91cd39e27a966f&model=classic&theta=30&phi=21&time=90&width=150&height=250'
+            description: 'Founder of the Grimwald SMP and owner for 5 years. Passed ownership to Roc and Bri early 2025. Also assists in various technical aspects of the server.',
+            image: '/staff/benny.png'
         },
         {
             name: 'Ewens',
             ign: 'MrslimesmasherYT',
-            role: 'Moderator',
+            role: 'Staff',
             roleColor: "#d68528",
-            title: 'Discord',
-            description: 'Makes sure things run smoothly on the Discord server and helps with moderation.',
-            image: 'https://s.namemc.com/3d/skin/body.png?id=2b4e8160ee593570&model=classic&theta=30&phi=21&time=90&width=150&height=250'
+            title: 'MC & Discord',
+            description: 'Helps with moderation on both the Discord and Minecraft servers. Handling whitelisting and making sure things run smoothly.',
+            image: '/staff/ewens.png'
+        },
+        {
+            name: 'Viper',
+            ign: 'VirginMegastore',
+            role: 'Staff',
+            roleColor: "#d68528",
+            title: 'MC & Discord',
+            description: 'Helps with moderation on both the Discord and Minecraft servers. Handling whitelisting and making sure things run smoothly.',
+            image: '/staff/viper.png'
         },
     ]
 
@@ -74,37 +77,19 @@ export default function page() {
                     obcaecati quae ratione rerum temporibus veritatis? Error exercitationem impedit perspiciatis
                     provident quasi quibusdam sit ut vel?</p>
 
-                <div className="flex flex-col md:flex-row gap-4 pt-10 items-start">
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 pt-10 px-4 max-w-7xl">
                     {staff.map((staffMember, index) => (
                         <div key={index}
-                             className="card card-border border-neutral-200 border-3 bg-base-200 w-70 md:w-80 shadow-sm">
-                            <figure className="pt-3"><Image src={staffMember.image} alt={staffMember.name}/></figure>
+                             className="card card-border border-neutral-200 border-3 bg-base-200 w-full shadow-sm">
+                            <figure className="pt-5"><Image src={staffMember.image} alt={staffMember.name} width={150}
+                                                            height={250}/></figure>
                             <div className="card-body text-left items-start">
-                                <h2 className="card-title">{staffMember.name} <span
-                                    className="text-neutral-content">({staffMember.ign})</span></h2>
+                                <h2 className="card-title flex-wrap">{staffMember.name} <span
+                                    className="text-neutral-content text-sm font-normal">({staffMember.ign})</span></h2>
                                 <p className="text-neutral-content"><span
                                     style={{color: staffMember.roleColor}}>{staffMember.role}</span> - {staffMember.title}
                                 </p>
-                                <p>{staffMember.description}</p>
-                                {staffMember.socials && (
-                                    <div className="card-actions justify-start gap-2 mt-2">
-                                        {staffMember.socials.map((social, idx) => (
-                                            social.href ? (
-                                                <Link key={idx} href={social.href}
-                                                   className="btn btn-sm btn-square btn-outline">
-                                                    <Image src={`https://cdn.simpleicons.org/${social.icon}/white`}
-                                                         alt={social.icon} className="w-4 h-4"/>
-                                                </Link>
-                                            ) : social.copyable ? (
-                                                <button key={idx} className="btn btn-sm btn-square btn-dash"
-                                                        onClick={() => navigator.clipboard.writeText(social.value)}>
-                                                    <Image src={`https://cdn.simpleicons.org/${social.icon}/white`}
-                                                         alt={social.icon} className="w-4 h-4"/>
-                                                </button>
-                                            ) : null
-                                        ))}
-                                    </div>
-                                )}
+                                <p className="text-sm">{staffMember.description}</p>
                             </div>
                         </div>
                     ))}
