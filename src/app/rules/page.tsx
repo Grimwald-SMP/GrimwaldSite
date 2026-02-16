@@ -28,11 +28,11 @@ export default function page() {
                     <ul className="list-disc list-inside space-y-1">
                         <li>Treat all members with respect.</li>
                         <li>
-                            Resolve conflicts peacefully. If you can't, contact
+                            Resolve conflicts peacefully. If you can&apos;t, contact
                             a staff member before things escalate.
                         </li>
                         <li>
-                            Don't take staff matters into your own hands - if
+                            Don&apos;t take staff matters into your own hands - if
                             you have an issue with what someone has done,
                             contact a staff member.
                         </li>
@@ -45,15 +45,15 @@ export default function page() {
                     </h2>
                     <ul className="list-disc list-inside space-y-1">
                         <li>
-                            No griefing or destruction of other players' builds.
+                            No griefing or destruction of other players&apos; builds.
                         </li>
                         <li>
-                            No stealing or taking items that don't belong to
+                            No stealing or taking items that don&apos;t belong to
                             you.
                         </li>
                     </ul>
                     <p className="pt-2">
-                        Don't even try, you will be caught. 🗿
+                        Don&apos;t even try, you will be caught. 🗿
                     </p>
                 </div>
 
@@ -62,14 +62,14 @@ export default function page() {
                         4. Building & Placement
                     </h2>
                     <p>
-                        Because we don't use a traditional land claims system:
+                        Because we don&apos;t use a traditional land claims system:
                     </p>
                     <ul className="list-disc list-inside space-y-1 pt-2">
                         <li>
                             Please be mindful of the placement of your builds.
                         </li>
                         <li>
-                            Make sure you're not invasive with where you choose
+                            Make sure you&apos;re not invasive with where you choose
                             to build.
                         </li>
                         <li>
@@ -90,7 +90,7 @@ export default function page() {
                             auto-mine, etc.).
                         </li>
                         <li>
-                            Client-side mods that don't provide an advantage are
+                            Client-side mods that don&apos;t provide an advantage are
                             allowed (e.g., minimaps, tooltip or visual mods).
                             Ask staff if unsure.
                         </li>
@@ -124,7 +124,7 @@ export default function page() {
                             No lag machines or excessive redstone contraptions
                             without staff approval.{" "}
                             <span className="text-neutral-content">
-                                Don't worry, most farms are fine, but if you
+                                Don&apos;t worry, most farms are fine, but if you
                                 think one might cause issues, chat with a staff
                                 member.
                             </span>
@@ -183,7 +183,7 @@ export default function page() {
                         make modifications. This is just to ensure a fair
                         economy and to reduce price-cutting.{" "}
                         <span className="text-neutral-content">
-                            (we aren't trying to be controlling overlords)
+                            (we aren&apos;t trying to be controlling overlords)
                         </span>
                     </p>
                 </div>
@@ -219,7 +219,7 @@ export default function page() {
                     </h2>
                     <ul className="list-disc list-inside space-y-1">
                         <li>
-                            We're here to have fun - don't argue over small
+                            We&apos;re here to have fun - don&apos;t argue over small
                             things.{" "}
                             <span className="text-neutral-content">
                                 (like camels)
@@ -230,7 +230,7 @@ export default function page() {
                             environment.
                         </li>
                         <li>
-                            Don't take major matters into your own hands -
+                            Don&apos;t take major matters into your own hands -
                             please let a staff member handle it.
                         </li>
                     </ul>
