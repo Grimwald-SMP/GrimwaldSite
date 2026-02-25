@@ -56,11 +56,12 @@ export default function page() {
             <section id="about"
                      className="w-full flex flex-col bg-neutral-200 items-center justify-center text-center gap-4 py-15">
                 <h1 className="text-3xl md:text-4xl font-bold text-neutral-content">About the Grimwald SMP</h1>
-                <p className="max-w-lg px-4">Grimwald SMP is a close-knit Minecraft community dedicated to providing a
-                    chill and laid-back atmosphere for players of all backgrounds. We primarily focus on Vanilla
-                    gameplay enhanced with small quality of life changes chosen by the community but also run modded
-                    seasons for players looking for a change from the regular Minecraft experience.</p>
-                <p className="max-w-lg px-4">We uphold a strict no pay-to-win policy, and operate as a democracy
+                <p className="max-w-xl px-4">Grimwald SMP is a close-knit Minecraft community dedicated to providing a
+                    chill and laid-back atmosphere for players of all backgrounds.</p>
+                <p className="max-w-lg px-4">We primarily focus on Vanilla gameplay with small quality of life
+                    enhancements voted on by the community (we also run modded seasons every four seasons to change
+                    things up a bit)</p>
+                <p className="max-w-xl px-4">We uphold a strict no pay-to-win policy, and operate as a democracy
                     allowing players to vote on all major decisions, ensuring a fair experience for all and fostering an
                     environment where everyone has the chance to have their opinions heard.</p>
                 <div className="flex gap-4 mt-2">
@@ -72,11 +73,10 @@ export default function page() {
             <section id="staff"
                      className="w-full flex flex-col bg-base-100 items-center justify-center text-center gap-4 py-15">
                 <h1 className="text-3xl md:text-4xl font-bold text-neutral-content">Friendly Staff</h1>
-                <p className="max-w-lg px-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur
-                    ducimus ex
-                    illum neque nulla
-                    obcaecati quae ratione rerum temporibus veritatis? Error exercitationem impedit perspiciatis
-                    provident quasi quibusdam sit ut vel?</p>
+                <p className="max-w-lg px-4">
+                    Staff members of the Grimwald SMP are helpful members of the community who are willing to help out
+                    and provide support however they can.
+                </p>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 pt-10 px-4 max-w-7xl">
                     {staff.map((staffMember, index) => (
