@@ -56,8 +56,13 @@ export default function page() {
             <section id="about"
                      className="w-full flex flex-col bg-neutral-200 items-center justify-center text-center gap-4 py-15">
                 <h1 className="text-3xl md:text-4xl font-bold text-neutral-content">About the Grimwald SMP</h1>
-                <p className="max-w-lg px-4">Grimwald SMP is a close-knit Minecraft community dedicated to providing a chill and laid-back atmosphere for players of all backgrounds. We primarily focus on Vanilla gameplay enhanced with small quality of life changes chosen by the community but also run modded seasons for players looking for a change from the regular Minecraft experience.</p>
-                <p className="max-w-lg px-4">We uphold a strict no pay-to-win policy, and operate as a democracy allowing players to vote on all major decisions, ensuring a fair experience for all and fostering an environment where everyone has the chance to have their opinions heard.</p>
+                <p className="max-w-lg px-4">Grimwald SMP is a close-knit Minecraft community dedicated to providing a
+                    chill and laid-back atmosphere for players of all backgrounds. We primarily focus on Vanilla
+                    gameplay enhanced with small quality of life changes chosen by the community but also run modded
+                    seasons for players looking for a change from the regular Minecraft experience.</p>
+                <p className="max-w-lg px-4">We uphold a strict no pay-to-win policy, and operate as a democracy
+                    allowing players to vote on all major decisions, ensuring a fair experience for all and fostering an
+                    environment where everyone has the chance to have their opinions heard.</p>
                 <div className="flex gap-4 mt-2">
                     <a href="/timeline" className="btn btn-dash btn-secondary">Timeline</a>
                     <a href="/apply" className="btn btn-primary">Apply Now</a>
