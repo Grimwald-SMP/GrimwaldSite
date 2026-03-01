@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Grimwald/S21 Stats</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="stats.css" />
+    <link rel="icon" type="image/x-icon" href="Images/Logo.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Slab:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="stats-container">
+      <center>
+        <h1>
+          Grimwald <br />
+          Season 21 Statistics
+        </h1>
+      </center>
+      
+      <div class="search-bar">
+        <input
+          type="text"
+          id="global-search"
+          placeholder="Search for your username..."
+        />
+        <p style="text-align: center">
+          Note: If you had multiple usernames throughout the<br />season your
+          stats have been collected and stored under your latest username.<br />
+          If this is not the case or you want your stats to be , Please notify
+          an admin.
+        </p>
+      </div>
+    </div>
+    <div class="button-container">
+      <button id="global-search-btn">Search</button>
+    </div>
+
+    <div class="stats-flex">
+      <div class="flex-item" id="Playtime">
+        <h3>Play Time (Hours)</h3>
+        <hr />
+        <div class="scoreboard-container" id="hc_playTime">
+          <div class="search-result"></div>
+          <div class="top3"></div>
+          <button class="expand-btn">Show Full Scoreboard</button>
+          <div class="full-scoreboard hidden"></div>
+        </div>
+      </div>
+      <div class="flex-item" id="Deaths">
+        <h3>Deaths</h3>
+        <hr />
+        <div class="scoreboard-container" id="ts_deaths">
+          <div class="search-result"></div>
+          <div class="top3"></div>
+          <button class="expand-btn">Show Full Scoreboard</button>
+          <div class="full-scoreboard hidden"></div>
+        </div>
+      </div>
+      <div class="flex-item" id="MobKills">
+        <h3>Mob Kills</h3>
+        <hr />
+        <div class="scoreboard-container" id="ts_MobKills">
+          <div class="search-result"></div>
+          <div class="top3"></div>
+          <button class="expand-btn">Show Full Scoreboard</button>
+          <div class="full-scoreboard hidden"></div>
+        </div>
+      </div>
+      <div class="flex-item" id="PlayerKills">
+        <h3>Player Kills</h3>
+        <hr />
+        <div class="scoreboard-container" id="ts_PlayerKills">
+          <div class="search-result"></div>
+          <div class="top3"></div>
+          <button class="expand-btn">Show Full Scoreboard</button>
+          <div class="full-scoreboard hidden"></div>
+        </div>
+      </div>
+      <div class="flex-item" id="DamageDealt">
+        <h3>Damage Dealt</h3>
+        <hr />
+        <div class="scoreboard-container" id="ts_DamageDealt">
+          <div class="search-result"></div>
+          <div class="top3"></div>
+          <button class="expand-btn">Show Full Scoreboard</button>
+          <div class="full-scoreboard hidden"></div>
+        </div>
+      </div>
+      <div class="flex-item" id="DamageTaken">
+        <h3>Damage Taken</h3>
+        <hr />
+        <div class="scoreboard-container" id="ts_DamageTaken">
+          <div class="search-result"></div>
+          <div class="top3"></div>
+          <button class="expand-btn">Show Full Scoreboard</button>
+          <div class="full-scoreboard hidden"></div>
+        </div>
+      </div>
+      <div class="flex-item" id="ItemsEnchanted">
+        <h3>Items Enchanted</h3>
+        <hr />
+        <div class="scoreboard-container" id="ts_EnchantItem">
+          <div class="search-result"></div>
+          <div class="top3"></div>
+          <button class="expand-btn">Show Full Scoreboard</button>
+          <div class="full-scoreboard hidden"></div>
+        </div>
+      </div>
+      <div class="flex-item" id="TotemsUsed">
+        <h3>Totems Used</h3>
+        <hr />
+        <div class="scoreboard-container" id="ts_UseTotem">
+          <div class="search-result"></div>
+          <div class="top3"></div>
+          <button class="expand-btn">Show Full Scoreboard</button>
+          <div class="full-scoreboard hidden"></div>
+        </div>
+      </div>
+      <div class="flex-item" id="DiamondsMined">
+        <h3>Diamonds Mined</h3>
+        <hr />
+        <div class="scoreboard-container" id="hc_MineDiamonds">
+          <div class="search-result"></div>
+          <div class="top3"></div>
+          <button class="expand-btn">Show Full Scoreboard</button>
+          <div class="full-scoreboard hidden"></div>
+        </div>
+      </div>
+      <div class="flex-item" id="AncientDebrisMined">
+        <h3>Ancient Debris Mined</h3>
+        <hr />
+        <div class="scoreboard-container" id="hc_MineNetherite">
+          <div class="search-result"></div>
+          <div class="top3"></div>
+          <button class="expand-btn">Show Full Scoreboard</button>
+          <div class="full-scoreboard hidden"></div>
+        </div>
+      </div>
+      <div class="flex-item" id="ShulkersOpened">
+        <h3>Shulkers Opened</h3>
+        <hr />
+        <div class="scoreboard-container" id="ts_ShulkerBox">
+          <div class="search-result"></div>
+          <div class="top3"></div>
+          <button class="expand-btn">Show Full Scoreboard</button>
+          <div class="full-scoreboard hidden"></div>
+        </div>
+      </div>
+      <div class="flex-item" id="EnderChestsOpened">
+        <h3>Ender Chests Opened</h3>
+        <hr />
+        <div class="scoreboard-container" id="ts_EnderChest">
+          <div class="search-result"></div>
+          <div class="top3"></div>
+          <button class="expand-btn">Show Full Scoreboard</button>
+          <div class="full-scoreboard hidden"></div>
+        </div>
+      </div>
+      <div class="flex-item" id="ChestsOpened">
+        <h3>Chests Opened</h3>
+        <hr />
+        <div class="scoreboard-container" id="ts_ChestsOpened">
+          <div class="search-result"></div>
+          <div class="top3"></div>
+          <button class="expand-btn">Show Full Scoreboard</button>
+          <div class="full-scoreboard hidden"></div>
+        </div>
+      </div>
+      <div class="flex-item" id="DistanceFlown">
+        <h3>Distance Flown (Blocks)</h3>
+        <hr />
+        <div class="scoreboard-container" id="ts_Fly">
+          <div class="search-result"></div>
+          <div class="top3"></div>
+          <button class="expand-btn">Show Full Scoreboard</button>
+          <div class="full-scoreboard hidden"></div>
+        </div>
+      </div>
+      <div class="flex-item" id="ElytraDistance">
+        <h3>Distance Travelled by Elytra (Blocks)</h3>
+        <hr />
+        <div class="scoreboard-container" id="hc_Elytra">
+          <div class="search-result"></div>
+          <div class="top3"></div>
+          <button class="expand-btn">Show Full Scoreboard</button>
+          <div class="full-scoreboard hidden"></div>
+        </div>
+      </div>
+      <div class="flex-item" id="DistanceByHorse">
+        <h3>Distance Travelled by Horse (Blocks)</h3>
+        <hr />
+        <div class="scoreboard-container" id="ts_HorseRode">
+          <div class="search-result"></div>
+          <div class="top3"></div>
+          <button class="expand-btn">Show Full Scoreboard</button>
+          <div class="full-scoreboard hidden"></div>
+        </div>
+      </div>
+      <div class="flex-item" id="DistanceByMinecart">
+        <h3>Distance Travelled by Minecart (Blocks)</h3>
+        <hr />
+        <div class="scoreboard-container" id="ts_MinecartRide">
+          <div class="search-result"></div>
+          <div class="top3"></div>
+          <button class="expand-btn">Show Full Scoreboard</button>
+          <div class="full-scoreboard hidden"></div>
+        </div>
+      </div>
+      <div class="flex-item" id="SwimDistance">
+        <h3>Distance Swum (Blocks)</h3>
+        <hr />
+        <div class="scoreboard-container" id="hc_Swim">
+          <div class="search-result"></div>
+          <div class="top3"></div>
+          <button class="expand-btn">Show Full Scoreboard</button>
+          <div class="full-scoreboard hidden"></div>
+        </div>
+      </div>
+      <div class="flex-item" id="ClimbDistance">
+        <h3>Distance Climbed (Blocks)</h3>
+        <hr />
+        <div class="scoreboard-container" id="ts_Climb">
+          <div class="search-result"></div>
+          <div class="top3"></div>
+          <button class="expand-btn">Show Full Scoreboard</button>
+          <div class="full-scoreboard hidden"></div>
+        </div>
+      </div>
+      <div class="flex-item" id="FallDistance">
+        <h3>Distance Fallen (Blocks)</h3>
+        <hr />
+        <div class="scoreboard-container" id="ts_Fall">
+          <div class="search-result"></div>
+          <div class="top3"></div>
+          <button class="expand-btn">Show Full Scoreboard</button>
+          <div class="full-scoreboard hidden"></div>
+        </div>
+      </div>
+      <div class="flex-item" id="CrouchDistance">
+        <h3>Distance Crouched (Blocks)</h3>
+        <hr />
+        <div class="scoreboard-container" id="ts_Crouch">
+          <div class="search-result"></div>
+          <div class="top3"></div>
+          <button class="expand-btn">Show Full Scoreboard</button>
+          <div class="full-scoreboard hidden"></div>
+        </div>
+      </div>
+      <div class="flex-item" id="WalkDistance">
+        <h3>Distance Walked (Blocks)</h3>
+        <hr />
+        <div class="scoreboard-container" id="ts_Walk">
+          <div class="search-result"></div>
+          <div class="top3"></div>
+          <button class="expand-btn">Show Full Scoreboard</button>
+          <div class="full-scoreboard hidden"></div>
+        </div>
+      </div>
+      <div class="flex-item" id="SprintedDistance">
+        <h3>Distance Sprinted (Blocks)</h3>
+        <hr />
+        <div class="scoreboard-container" id="ts_Sprint">
+          <div class="search-result"></div>
+          <div class="top3"></div>
+          <button class="expand-btn">Show Full Scoreboard</button>
+          <div class="full-scoreboard hidden"></div>
+        </div>
+      </div>
+      <div class="flex-item" id="Jumps">
+        <h3>Number Of Jumps</h3>
+        <hr />
+        <div class="scoreboard-container" id="ts_Jump">
+          <div class="search-result"></div>
+          <div class="top3"></div>
+          <button class="expand-btn">Show Full Scoreboard</button>
+          <div class="full-scoreboard hidden"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="https://storage.ko-fi.com/cdn/scripts/overlay-widget.js"></script>
+  <!-- Ko-Fi Button -->
+  <script src="stats.js"></script>
+</html>
