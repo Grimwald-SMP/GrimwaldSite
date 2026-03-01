@@ -102,15 +102,12 @@ export default function Home() {
                 <div className="px-4">
                     <p className="max-w-sm pb-4">Grimwald SMP has been around since 2020, starting off as a group of friends with more people joining throughout the years.</p>
                     <p className="max-w-sm">We are currently on <span
-                        className="font-semibold text-neutral-50">Season 21</span> with this being our longest season
-                        yet.
-                        We are experimenting with the idea of longer seasons to give members the opportunity to work on
-                        larger projects.</p>
+                        className="font-semibold text-neutral-50">Season 22</span>! We are expecting this season to go for about a year - like the previous season 21.</p>
                 </div>
 
                 <div className="pt-5 flex flex-col items-center justify-center space-y-4">
                     <h3 className="text-2xl text-neutral-50 font-semibold">Season Age</h3>
-                    <CountUp startEpoch={1738944720}/>
+                    <CountUp startEpoch={1772380800}/>
                     <h3 className="text-2xl text-neutral-50 font-semibold">Server Age</h3>
                     <CountUp startEpoch={1600095600}/>
                 </div>
