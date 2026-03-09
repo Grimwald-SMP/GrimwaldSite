@@ -645,6 +645,52 @@ export const timelineData: Record<string, SeasonData> = {
         description: "Activity had dropped off significantly during December, with only a few players still active and the server sitting empty a lot of the time due to many players being too busy to play. We opted to end the season just shy of 2 months and take a break over the Christmas period."
       }
     ]
+  },
+  // Just a rough plan for now
+  season21: {
+    background: "/timeline/S21Background.png",
+    events: [
+      {
+        date: "February 7th 2025"
+        title: "Season 21 Begins",
+        description: ""
+      },
+      {
+        date: ""
+        title: "Ownership Transferred"
+        description: ""
+      },
+      {
+        title: "Builds + CTF"
+      },
+      {
+        title: "First CTF Games"
+      },
+      {
+        title: "Bases"
+      },
+      {
+        title: "Activity dies down a bit"
+      },
+      {
+        title: "Activity goes back up"
+      },
+      {
+        title: "Black Hole Forge Game"
+      },
+      {
+        title: "5 Year anniversary"
+      },
+      {
+        title: "Business District and GrimScraps"
+      },
+      {
+        title: "Piston Bolt Project"
+      },
+      {
+        title: "D-Day" // Maybe worth mentioning as we haven't done it in a while
+      }
+    ]
   }
 };
 
