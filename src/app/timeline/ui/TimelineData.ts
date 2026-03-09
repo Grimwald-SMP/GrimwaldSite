@@ -606,7 +606,7 @@ export const timelineData: Record<string, SeasonData> = {
         image: "/timeline/S19Gaming.png"
       },
       {
-        date: "August 14th 2024",
+        date: "September 14th 2024",
         title: "Four Year Anniversary!",
         description: "The server celebrates its fourth anniversary."
       },
