@@ -653,42 +653,56 @@ export const timelineData: Record<string, SeasonData> = {
       {
         date: "February 7th 2025"
         title: "Season 21 Begins",
+        description: "After a slight break, interest in the server begins to rise again, so a new season is launched."
+      },
+      {
+        date: "May "
+        title: "Ownership Transferred",
+        description: "One of the server owners decided to step back from their position and hand over ownership to two new owners. One that will focus on the technical side and running the server and one that will focus on the community side of the server."
+      },
+      {
+        title: "Builds + CTF",
         description: ""
       },
       {
-        date: ""
-        title: "Ownership Transferred"
+        title: "First CTF Games",
+        description: "The Capture The Flag game is finished and hosts a couple games."
+      },
+      {
+        title: "Bases",
+        description: "" // Describe some of the prominent bases that were made
+      },
+      {
+        title: "Activity dies down a bit",
         description: ""
       },
       {
-        title: "Builds + CTF"
+        title: "Activity goes back up",
+        description: ""
       },
       {
-        title: "First CTF Games"
+        title: "Black Hole Forge Game",
+        description: ""
       },
       {
-        title: "Bases"
+        date: "September 14th 2025",
+        title: "5 Year anniversary",
+        description: "The server celebrates it's 5th anniversary"
       },
       {
-        title: "Activity dies down a bit"
+        title: "Business District and GrimScraps",
+        description: "TODO describe opening event (I missed it)... at the end of the event a new currency known as GrimScraps was introduced. Grimscraps were backed by rare items and specifically designed to improve the economy, however not all players were on board with this idea. Some players even denounced this new currency and refused to ever use it."
+        //video: ?
       },
       {
-        title: "Activity goes back up"
+        title: "Piston Bolt Project",
+        description: ""
+        //video: ?
       },
       {
-        title: "Black Hole Forge Game"
-      },
-      {
-        title: "5 Year anniversary"
-      },
-      {
-        title: "Business District and GrimScraps"
-      },
-      {
-        title: "Piston Bolt Project"
-      },
-      {
-        title: "D-Day" // Maybe worth mentioning as we haven't done it in a while
+        date: "February 28th 2026",
+        title: "Season 21 Ends/D-Day Event",
+        description: "Season S21 ends after being online for over a year, making it our longest season to date. To commemorate the occasion we decided to revive our tradition of getting together to destroy everything on the current world before the new season starts."
       }
     ]
   }
