@@ -7,7 +7,8 @@ const nextConfig: NextConfig = {
         imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
         remotePatterns:[
             new URL('https://s.namemc.com/**'),
-            new URL('https://namemc.com/**')
+            new URL('https://namemc.com/**'),
+            new URL('http://static.grimwald.xyz/**')
         ]
     },
 };
