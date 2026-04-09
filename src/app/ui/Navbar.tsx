@@ -10,6 +10,7 @@ export default function Navbar() {
         {text: 'About', href: '/about'},
         {text: 'Rules', href: '/rules'},
         {text: 'Timeline', href: '/timeline'},
+        {text: 'Worlds', href: '/worlds'},
     ]
 
     const navButtons = [

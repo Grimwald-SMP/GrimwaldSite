@@ -11,6 +11,7 @@ export default function Footer() {
             {text: 'Rules', href: '/rules'},
             {text: 'Apply', href: '/apply'},
             {text: 'Map', href: '/map'},
+            {text: 'Worlds', href: '/worlds'},
         ],
         community: [
             {text: 'News', href: '/news'},
