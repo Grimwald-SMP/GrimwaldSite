@@ -264,7 +264,7 @@ export default function SuggestPage() {
                                 }
                             >
                                 <option value="">
-                                    {isNewItem ? "— No category —" : "— No change —"}
+                                    {isNewItem ? "- No category -" : "- No change -"}
                                 </option>
                                 {categories.map((cat) => (
                                     <option key={cat.id} value={cat.id}>
@@ -286,7 +286,7 @@ export default function SuggestPage() {
                                 type="number"
                                 min="0"
                                 step="any"
-                                placeholder="e.g. 2.5"
+                                placeholder="e.g. 2"
                                 value={suggestedPrice}
                                 onChange={(e) =>
                                     setSuggestedPrice(e.target.value)

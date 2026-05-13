@@ -1,6 +1,6 @@
 // Client-side (browser): always "" so requests go to /api/* on the same origin,
 //   which next.config.ts proxies to the VPS. This keeps the cookie same-site
-//   and visible to Next.js middleware — works identically in dev and production.
+//   and visible to Next.js middleware - works identically in dev and production.
 // Server-side (SSR/SSG): must use an absolute URL; defaults to VPS_URL.
 // Override both with NEXT_PUBLIC_API_BASE, e.g. http://localhost:8088 for a local API.
 const VPS_URL = "https://prices.grimwald.xyz";
@@ -72,7 +72,7 @@ export const submitSuggestion = (data: {
         body: JSON.stringify(data),
     });
 
-// Admin — items
+// Admin - items
 export const createItem = (data: Partial<PriceItem>) =>
     apiFetch<PriceItem>("/api/items", {
         method: "POST",
@@ -93,7 +93,7 @@ export const bulkImport = (
         body: JSON.stringify(rows),
     });
 
-// Admin — categories
+// Admin - categories
 export const createCategory = (data: Omit<Category, "id">) =>
     apiFetch<Category>("/api/items/categories", {
         method: "POST",
@@ -109,7 +109,7 @@ export const deleteCategory = (id: number) =>
         method: "DELETE",
     });
 
-// Admin — submissions
+// Admin - submissions
 export const getSubmissions = (status?: string) =>
     apiFetch<Submission[]>(
         `/api/submissions${status ? `?status=${status}` : ""}`,
@@ -165,7 +165,7 @@ export const getAuditLog = (params?: { limit?: number; offset?: number; action?:
     );
 };
 
-// Admin — admin accounts
+// Admin - admin accounts
 export interface AdminAccount {
     id: number;
     username: string;
