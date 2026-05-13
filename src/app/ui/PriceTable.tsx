@@ -11,6 +11,9 @@ import {
   UNIT_LABELS,
   type PriceUnit,
 } from "@/app/lib/priceCalc";
+
+const STACK_COL_LABEL = "/ stack";
+const SHULKER_COL_LABEL_GENERIC = "/ shulker";
 import CategoryPill from "./CategoryPill";
 
 interface Props {
@@ -22,7 +25,7 @@ type ViewMode = PriceUnit | "all";
 
 const VIEW_TABS: { key: ViewMode; label: string }[] = [
   { key: "per_item", label: "Per Item" },
-  { key: "per_stack", label: "Per Stack (64)" },
+  { key: "per_stack", label: "Per Stack" },
   { key: "per_shulker", label: "Per Shulker" },
   { key: "all", label: "All" },
 ];
@@ -80,16 +83,16 @@ export default function PriceTable({ items, categories }: Props) {
   }
 
   function fmtForView(item: PriceItem, unit: PriceUnit): string {
-    if (item.diamond_price == null) return "—";
+    if (item.diamond_price == null) return "-";
     if (unit === "per_item") return fmtPerItem(item.diamond_price);
-    return fmtAutoDb(toUnit(item.diamond_price, unit));
+    return fmtAutoDb(toUnit(item.diamond_price, unit, item.stack_size ?? 64));
   }
 
   function fmtFloorForView(item: PriceItem, unit: PriceUnit): string {
-    if (item.diamond_price == null || item.diamond_price <= 0) return "—";
+    if (item.diamond_price == null || item.diamond_price <= 0) return "-";
     const floor = ceilMinPrice(item.diamond_price);
     if (unit === "per_item") return fmtPerItem(floor);
-    return fmtAutoDb(toUnit(floor, unit));
+    return fmtAutoDb(toUnit(floor, unit, item.stack_size ?? 64));
   }
 
   const lastUpdated = items.length
@@ -190,12 +193,13 @@ export default function PriceTable({ items, categories }: Props) {
                   <th className="text-right cursor-pointer select-none" onClick={togglePriceSort}>
                     {UNIT_LABELS.per_item} <SortIcon active={sortByPrice} />
                   </th>
-                  <th className="text-right">{UNIT_LABELS.per_stack}</th>
-                  <th className="text-right">{UNIT_LABELS.per_shulker}</th>
+                  <th className="text-right">{STACK_COL_LABEL}</th>
+                  <th className="text-right">{SHULKER_COL_LABEL_GENERIC}</th>
                 </>
               ) : (
                 <th className="text-right cursor-pointer select-none" onClick={togglePriceSort}>
-                  {showFloor ? "Floor" : "Price"} ({UNIT_LABELS[view as PriceUnit]})
+                  {showFloor ? "Floor" : "Price"} (
+                  {view === "per_shulker" ? SHULKER_COL_LABEL_GENERIC : view === "per_stack" ? STACK_COL_LABEL : UNIT_LABELS[view as PriceUnit]})
                   {" "}<SortIcon active={sortByPrice} />
                 </th>
               )}
@@ -229,7 +233,7 @@ export default function PriceTable({ items, categories }: Props) {
                         {item.category_name}
                       </span>
                     ) : (
-                      <span className="text-base-content/30">—</span>
+                      <span className="text-base-content/30">-</span>
                     )}
                   </td>
                   {showAll ? (

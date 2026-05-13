@@ -21,6 +21,7 @@ export interface PriceItem {
     category_color: string | null;
     diamond_price: number | null;
     notes: string | null;
+    stack_size: number;
     updated_at: string;
 }
 

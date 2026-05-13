@@ -17,6 +17,8 @@ import {
   fmtAutoDb,
   fmtPerItem,
   UNIT_LABELS,
+  stackLabel,
+  shulkerLabel,
   type PriceUnit,
 } from "@/app/lib/priceCalc";
 
@@ -25,7 +27,7 @@ interface Props {
   categories: Category[];
 }
 
-type EditableItem = PriceItem & { _isNew?: boolean; _dirty?: boolean };
+type EditableItem = PriceItem & { _isNew?: boolean; _dirty?: boolean; stack_size: number };
 
 const col = createColumnHelper<EditableItem>();
 
@@ -35,10 +37,14 @@ const col = createColumnHelper<EditableItem>();
  */
 function PriceCell({
   perItem,
+  stackSize,
   onChange,
+  onStackSizeChange,
 }: {
   perItem: number | null;
+  stackSize: number;
   onChange: (perItem: number | null) => void;
+  onStackSizeChange: (s: number) => void;
 }) {
   const [unit, setUnit] = useState<PriceUnit>("per_item");
   const [raw, setRaw] = useState(() =>
@@ -47,7 +53,7 @@ function PriceCell({
 
   function handleUnitChange(newUnit: PriceUnit) {
     setUnit(newUnit);
-    if (perItem != null) setRaw(String(toUnit(perItem, newUnit)));
+    if (perItem != null) setRaw(String(toUnit(perItem, newUnit, stackSize)));
   }
 
   function handleChange(val: string) {
@@ -57,8 +63,14 @@ function PriceCell({
       return;
     }
     const n = parseFloat(val);
-    if (!isNaN(n) && n > 0) onChange(fromUnit(n, unit));
+    if (!isNaN(n) && n > 0) onChange(fromUnit(n, unit, stackSize));
   }
+
+  const unitOptions: [PriceUnit, string][] = [
+    ["per_item", UNIT_LABELS.per_item],
+    ["per_stack", stackLabel(stackSize)],
+    ["per_shulker", shulkerLabel(stackSize)],
+  ];
 
   const preview = perItem != null && perItem > 0 ? (
     <div className="flex gap-2 text-xs text-base-content/40 mt-0.5 flex-wrap">
@@ -66,8 +78,10 @@ function PriceCell({
         .filter((u) => u !== unit)
         .map((u) => (
           <span key={u}>
-            {u === "per_item" ? fmtPerItem(perItem) : fmtAutoDb(toUnit(perItem, u))}
-            <span className="ml-0.5 opacity-70">{UNIT_LABELS[u]}</span>
+            {u === "per_item" ? fmtPerItem(perItem) : fmtAutoDb(toUnit(perItem, u, stackSize))}
+            <span className="ml-0.5 opacity-70">
+              {u === "per_shulker" ? shulkerLabel(stackSize) : u === "per_stack" ? stackLabel(stackSize) : UNIT_LABELS[u]}
+            </span>
           </span>
         ))}
     </div>
@@ -75,14 +89,14 @@ function PriceCell({
 
   return (
     <div>
-      <div className="flex items-center gap-1">
+      <div className="flex items-center gap-1 flex-wrap">
         <input
           type="number"
           min="0"
           step="any"
           className="input input-xs input-bordered w-24 font-mono"
           value={raw}
-          placeholder="—"
+          placeholder="-"
           onChange={(e) => handleChange(e.target.value)}
         />
         <select
@@ -90,10 +104,25 @@ function PriceCell({
           value={unit}
           onChange={(e) => handleUnitChange(e.target.value as PriceUnit)}
         >
-          {(Object.entries(UNIT_LABELS) as [PriceUnit, string][]).map(([k, v]) => (
+          {unitOptions.map(([k, v]) => (
             <option key={k} value={k}>{v}</option>
           ))}
         </select>
+      </div>
+      <div className="flex items-center gap-1 mt-0.5">
+        <span className="text-xs text-base-content/40">Stack:</span>
+        <input
+          type="number"
+          min="1"
+          max="64"
+          step="1"
+          className="input input-xs input-bordered w-14 font-mono"
+          value={stackSize}
+          onChange={(e) => {
+            const n = parseInt(e.target.value, 10);
+            if (!isNaN(n) && n >= 1 && n <= 64) onStackSizeChange(n);
+          }}
+        />
       </div>
       {preview}
     </div>
@@ -114,7 +143,7 @@ function TextCell({
       type="text"
       className="input input-xs input-bordered w-44"
       value={value ?? ""}
-      placeholder={placeholder ?? "—"}
+      placeholder={placeholder ?? "-"}
       maxLength={200}
       onChange={(e) => onChange(e.target.value || null)}
     />
@@ -150,6 +179,7 @@ export default function AdminPriceEditor({ initialItems, categories }: Props) {
         category_id: item.category_id,
         diamond_price: item.diamond_price,
         notes: item.notes,
+        stack_size: item.stack_size,
       };
       if (item._isNew) {
         const saved = await createItem(payload);
@@ -198,6 +228,7 @@ export default function AdminPriceEditor({ initialItems, categories }: Props) {
         category_color: null,
         diamond_price: null,
         notes: null,
+        stack_size: 64,
         updated_at: new Date().toISOString(),
         _isNew: true,
         _dirty: true,
@@ -295,7 +326,7 @@ export default function AdminPriceEditor({ initialItems, categories }: Props) {
             )
           }
         >
-          <option value="">— None —</option>
+          <option value="">- None -</option>
           {categories.map((c) => (
             <option key={c.id} value={c.id}>{c.name}</option>
           ))}
@@ -307,7 +338,9 @@ export default function AdminPriceEditor({ initialItems, categories }: Props) {
       cell: ({ row }) => (
         <PriceCell
           perItem={row.original.diamond_price}
+          stackSize={row.original.stack_size ?? 64}
           onChange={(v) => updateField(row.original.id, "diamond_price", v)}
+          onStackSizeChange={(s) => updateField(row.original.id, "stack_size", s)}
         />
       ),
     }),

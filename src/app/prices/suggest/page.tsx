@@ -4,6 +4,14 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { getItems, getCategories, submitSuggestion } from "@/app/lib/priceApi";
 import type { PriceItem, Category } from "@/app/lib/priceApi";
+import {
+    fromUnit,
+    fmtPerItem,
+    UNIT_LABELS,
+    stackLabel,
+    shulkerLabel,
+    type PriceUnit,
+} from "@/app/lib/priceCalc";
 
 type State = "idle" | "loading" | "success" | "error";
 
@@ -15,10 +23,11 @@ export default function SuggestPage() {
 
     const [username, setUsername] = useState("");
     const [itemSearch, setItemSearch] = useState("");
-    const [selectedItemId, setSelectedItemId] = useState<number | null>(null);
+    const [selectedItem, setSelectedItem] = useState<PriceItem | null>(null);
     const [isNewItem, setIsNewItem] = useState(false);
     const [newItemName, setNewItemName] = useState("");
     const [suggestedPrice, setSuggestedPrice] = useState("");
+    const [suggestedPriceUnit, setSuggestedPriceUnit] = useState<PriceUnit>("per_item");
     const [suggestedCategoryId, setSuggestedCategoryId] = useState<number | null>(null);
     const [reasoning, setReasoning] = useState("");
 
@@ -30,9 +39,11 @@ export default function SuggestPage() {
 
     // When an existing item is selected, pre-fill its current category
     function selectItem(item: PriceItem) {
-        setSelectedItemId(item.id);
+        setSelectedItem(item);
         setItemSearch(item.name);
         setSuggestedCategoryId(item.category_id);
+        setSuggestedPrice("");
+        setSuggestedPriceUnit("per_item");
     }
 
     const filteredItems = itemSearch.trim()
@@ -41,6 +52,13 @@ export default function SuggestPage() {
           )
         : items;
 
+    const stackSize = selectedItem?.stack_size ?? 64;
+    const unitOptions: [PriceUnit, string][] = [
+        ["per_item", UNIT_LABELS.per_item],
+        ["per_stack", stackLabel(stackSize)],
+        ["per_shulker", shulkerLabel(stackSize)],
+    ];
+
     async function handleSubmit(e: React.FormEvent) {
         e.preventDefault();
         setState("loading");
@@ -48,8 +66,7 @@ export default function SuggestPage() {
 
         const itemName = isNewItem
             ? newItemName.trim()
-            : (items.find((i) => i.id === selectedItemId)?.name ??
-              itemSearch.trim());
+            : (selectedItem?.name ?? itemSearch.trim());
 
         if (!itemName) {
             setErrorMsg("Please select or enter an item name.");
@@ -57,11 +74,28 @@ export default function SuggestPage() {
             return;
         }
 
+        // Convert suggested price to per-item
+        const submittedPerItem = suggestedPrice
+            ? fromUnit(Number(suggestedPrice), suggestedPriceUnit, stackSize)
+            : null;
+
+        // Duplicate guard: reject if the suggested value matches the current price
+        if (
+            !isNewItem &&
+            selectedItem?.diamond_price != null &&
+            submittedPerItem != null &&
+            Math.abs(submittedPerItem - selectedItem.diamond_price) < 1e-9
+        ) {
+            setErrorMsg("Suggested price matches the current price. Please suggest a different value.");
+            setState("error");
+            return;
+        }
+
         try {
             await submitSuggestion({
-                item_id: isNewItem ? null : selectedItemId,
+                item_id: isNewItem ? null : (selectedItem?.id ?? null),
                 item_name: itemName,
-                suggested_price: suggestedPrice ? Number(suggestedPrice) : null,
+                suggested_price: submittedPerItem,
                 suggested_category_id: suggestedCategoryId,
                 reasoning: reasoning.trim() || undefined,
                 submitter_username: username.trim(),
@@ -156,7 +190,7 @@ export default function SuggestPage() {
                                 type="button"
                                 onClick={() => {
                                     setIsNewItem(false);
-                                    setSelectedItemId(null);
+                                    setSelectedItem(null);
                                     setSuggestedCategoryId(null);
                                 }}
                                 className={`btn btn-sm flex-1 ${!isNewItem ? "btn-primary" : "btn-ghost"}`}
@@ -167,7 +201,7 @@ export default function SuggestPage() {
                                 type="button"
                                 onClick={() => {
                                     setIsNewItem(true);
-                                    setSelectedItemId(null);
+                                    setSelectedItem(null);
                                     setSuggestedCategoryId(null);
                                 }}
                                 className={`btn btn-sm flex-1 ${isNewItem ? "btn-primary" : "btn-ghost"}`}
@@ -193,7 +227,7 @@ export default function SuggestPage() {
                                     value={itemSearch}
                                     onChange={(e) => {
                                         setItemSearch(e.target.value);
-                                        setSelectedItemId(null);
+                                        setSelectedItem(null);
                                         setSuggestedCategoryId(null);
                                     }}
                                 />
@@ -207,7 +241,7 @@ export default function SuggestPage() {
                                                         type="button"
                                                         onClick={() => selectItem(item)}
                                                         className={`w-full text-left px-4 py-2 hover:bg-base-200 text-sm ${
-                                                            selectedItemId === item.id
+                                                            selectedItem?.id === item.id
                                                                 ? "text-primary font-medium"
                                                                 : ""
                                                         }`}
@@ -232,6 +266,17 @@ export default function SuggestPage() {
                                             </li>
                                         )}
                                     </ul>
+                                )}
+                                {/* Current price display */}
+                                {selectedItem != null && (
+                                    <div className="text-sm text-base-content/60 px-1">
+                                        Current price:{" "}
+                                        <span className="font-mono text-base-content">
+                                            {selectedItem.diamond_price != null
+                                                ? fmtPerItem(selectedItem.diamond_price)
+                                                : "not set"}
+                                        </span>
+                                    </div>
                                 )}
                             </div>
                         )}
@@ -275,26 +320,39 @@ export default function SuggestPage() {
                         </div>
                     </div>
 
-                    {/* Suggested price */}
+                    {/* Suggested price with unit selector */}
                     <label className="form-control">
                         <span className="label-text mb-1 font-medium">
-                            Suggested Price (diamonds per item)
+                            Suggested Price
                         </span>
-                        <div className="relative">
-                            <input
-                                className="input input-bordered w-full pr-10"
-                                type="number"
-                                min="0"
-                                step="any"
-                                placeholder="e.g. 2"
-                                value={suggestedPrice}
+                        <div className="flex gap-2">
+                            <div className="relative flex-1">
+                                <input
+                                    className="input input-bordered w-full pr-10"
+                                    type="number"
+                                    min="0"
+                                    step="any"
+                                    placeholder="e.g. 2"
+                                    value={suggestedPrice}
+                                    onChange={(e) =>
+                                        setSuggestedPrice(e.target.value)
+                                    }
+                                />
+                                <span className="absolute right-3 top-1/2 -translate-y-1/2 text-lg">
+                                    💎
+                                </span>
+                            </div>
+                            <select
+                                className="select select-bordered"
+                                value={suggestedPriceUnit}
                                 onChange={(e) =>
-                                    setSuggestedPrice(e.target.value)
+                                    setSuggestedPriceUnit(e.target.value as PriceUnit)
                                 }
-                            />
-                            <span className="absolute right-3 top-1/2 -translate-y-1/2 text-lg">
-                                💎
-                            </span>
+                            >
+                                {unitOptions.map(([k, v]) => (
+                                    <option key={k} value={k}>{v}</option>
+                                ))}
+                            </select>
                         </div>
                     </label>
 

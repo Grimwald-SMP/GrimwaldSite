@@ -1,5 +1,5 @@
 export const STACK = 64;
-export const SHULKER = 27 * STACK; // 1728 items
+export const SHULKER = 27 * STACK; // 1728 items (default, stack_size=64)
 export const DIAMONDS_PER_BLOCK = 9;
 
 export type PriceUnit = "per_item" | "per_stack" | "per_shulker";
@@ -10,17 +10,27 @@ export const UNIT_LABELS: Record<PriceUnit, string> = {
     per_shulker: "/ shulker (1728)",
 };
 
+/** Dynamic stack label based on item stack size. */
+export function stackLabel(stackSize: number): string {
+    return `/ stack (${stackSize})`;
+}
+
+/** Dynamic shulker label based on item stack size. */
+export function shulkerLabel(stackSize: number): string {
+    return `/ shulker (${27 * stackSize})`;
+}
+
 /** Convert a stored per-item price to a given display unit. */
-export function toUnit(perItem: number, unit: PriceUnit): number {
-    if (unit === "per_stack") return perItem * STACK;
-    if (unit === "per_shulker") return perItem * SHULKER;
+export function toUnit(perItem: number, unit: PriceUnit, stackSize = 64): number {
+    if (unit === "per_stack") return perItem * stackSize;
+    if (unit === "per_shulker") return perItem * 27 * stackSize;
     return perItem;
 }
 
 /** Convert a price entered in some unit back to per-item for storage. */
-export function fromUnit(value: number, unit: PriceUnit): number {
-    if (unit === "per_stack") return value / STACK;
-    if (unit === "per_shulker") return value / SHULKER;
+export function fromUnit(value: number, unit: PriceUnit, stackSize = 64): number {
+    if (unit === "per_stack") return value / stackSize;
+    if (unit === "per_shulker") return value / (27 * stackSize);
     return value;
 }
 

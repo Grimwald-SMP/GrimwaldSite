@@ -1,11 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import type { Submission } from "@/app/lib/priceApi";
+import type { Submission, PriceItem } from "@/app/lib/priceApi";
 import { reviewSubmission } from "@/app/lib/priceApi";
+import { fmtPerItem } from "@/app/lib/priceCalc";
 
 interface Props {
   initialSubmissions: Submission[];
+  items: PriceItem[];
 }
 
 const STATUS_COLORS: Record<string, string> = {
@@ -14,7 +16,8 @@ const STATUS_COLORS: Record<string, string> = {
   rejected: "badge-error",
 };
 
-export default function SubmissionsReview({ initialSubmissions }: Props) {
+export default function SubmissionsReview({ initialSubmissions, items }: Props) {
+  const itemMap = new Map(items.map((i) => [i.id, i]));
   const [submissions, setSubmissions] = useState<Submission[]>(initialSubmissions);
   const [statusFilter, setStatusFilter] = useState<"all" | "pending" | "approved" | "rejected">("pending");
   const [processing, setProcessing] = useState<Set<number>>(new Set());
@@ -89,6 +92,7 @@ export default function SubmissionsReview({ initialSubmissions }: Props) {
             <tr className="bg-base-200 text-base-content/70 text-xs">
               <th>Username</th>
               <th>Item</th>
+              <th className="text-right">Current 💎</th>
               <th>Category</th>
               <th className="text-right">Suggested 💎</th>
               <th>Reasoning</th>
@@ -101,7 +105,7 @@ export default function SubmissionsReview({ initialSubmissions }: Props) {
           <tbody>
             {filtered.length === 0 ? (
               <tr>
-                <td colSpan={9} className="text-center text-base-content/40 py-10">
+                <td colSpan={10} className="text-center text-base-content/40 py-10">
                   No {statusFilter === "all" ? "" : statusFilter} submissions
                 </td>
               </tr>
@@ -110,6 +114,14 @@ export default function SubmissionsReview({ initialSubmissions }: Props) {
                 <tr key={sub.id} className="hover">
                   <td className="font-medium">{sub.submitter_username}</td>
                   <td>{sub.item_name}</td>
+                  <td className="text-right font-mono text-xs">
+                    {sub.item_id != null && itemMap.has(sub.item_id)
+                      ? (() => {
+                          const p = itemMap.get(sub.item_id)!.diamond_price;
+                          return p != null ? fmtPerItem(p) : <span className="text-base-content/30">-</span>;
+                        })()
+                      : <span className="text-base-content/30">-</span>}
+                  </td>
                   <td>
                     {sub.suggested_category_name ? (
                       <span
@@ -123,15 +135,15 @@ export default function SubmissionsReview({ initialSubmissions }: Props) {
                         {sub.suggested_category_name}
                       </span>
                     ) : (
-                      <span className="text-base-content/30 text-xs">—</span>
+                      <span className="text-base-content/30 text-xs">-</span>
                     )}
                   </td>
                   <td className="text-right font-mono">
-                    {sub.suggested_price != null ? sub.suggested_price : "—"}
+                    {sub.suggested_price != null ? sub.suggested_price : "-"}
                   </td>
                   <td className="max-w-xs">
                     <span className="text-sm text-base-content/70 line-clamp-2" title={sub.reasoning ?? ""}>
-                      {sub.reasoning ?? "—"}
+                      {sub.reasoning ?? "-"}
                     </span>
                   </td>
                   <td className="text-sm text-base-content/50 whitespace-nowrap">

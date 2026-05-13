@@ -3,18 +3,19 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import SubmissionsReview from "@/app/ui/SubmissionsReview";
-import { getSubmissions, adminLogout, type Submission } from "@/app/lib/priceApi";
+import { getSubmissions, getItems, adminLogout, type Submission, type PriceItem } from "@/app/lib/priceApi";
 import Link from "next/link";
 
 export default function AdminSubmissionsPage() {
     const router = useRouter();
     const [submissions, setSubmissions] = useState<Submission[]>([]);
+    const [items, setItems] = useState<PriceItem[]>([]);
     const [loading, setLoading] = useState(true);
     const [fetchError, setFetchError] = useState("");
 
     useEffect(() => {
-        getSubmissions()
-            .then(setSubmissions)
+        Promise.all([getSubmissions(), getItems()])
+            .then(([s, i]) => { setSubmissions(s); setItems(i); })
             .catch((err: Error) => {
                 if (
                     err.message === "Unauthorized" ||
@@ -77,7 +78,7 @@ export default function AdminSubmissionsPage() {
                 ) : fetchError ? (
                     <div className="alert alert-error">{fetchError}</div>
                 ) : (
-                    <SubmissionsReview initialSubmissions={submissions} />
+                    <SubmissionsReview initialSubmissions={submissions} items={items} />
                 )}
             </div>
         </main>
