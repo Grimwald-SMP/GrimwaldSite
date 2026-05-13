@@ -1,4 +1,4 @@
-const STATIC_URL = "http://static.grimwald.xyz/static/";
+const STATIC_URL = "https://static.grimwald.xyz/static/";
 
 export interface World {
     id: string;
