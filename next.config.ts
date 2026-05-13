@@ -20,10 +20,9 @@ const nextConfig: NextConfig = {
         return [{ source: "/:path*", headers: securityHeaders }];
     },
     async rewrites() {
-        // In dev, proxy /api/* to the VPS so the browser stays on localhost.
-        // This avoids SameSite=Strict cross-site cookie rejection.
-        // In production the frontend calls the VPS directly via NEXT_PUBLIC_API_BASE.
-        if (process.env.NODE_ENV === "production") return [];
+        // Always proxy /api/* through Next.js so the browser only ever talks to
+        // the same origin (localhost in dev, www.grimwald.xyz in prod).
+        // This keeps the admin_token cookie same-site and visible to middleware.
         return [
             {
                 source: "/api/:path*",

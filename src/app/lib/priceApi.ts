@@ -1,16 +1,11 @@
-// Dev with VPS:        NEXT_PUBLIC_API_BASE=   (empty, default in .env.local)
-//   - browser requests go to /api/* → proxied by next.config.ts → VPS (avoids SameSite cookie issue)
-//   - server requests use VPS_URL directly (Node fetch needs an absolute URL)
-// Dev with local API:  NEXT_PUBLIC_API_BASE=http://localhost:8088
-// Production (Vercel): no env var needed — falls back to VPS_URL on both server and client
-//                      set NEXT_PUBLIC_API_BASE=https://prices.grimwald.xyz to be explicit
+// Client-side (browser): always "" so requests go to /api/* on the same origin,
+//   which next.config.ts proxies to the VPS. This keeps the cookie same-site
+//   and visible to Next.js middleware — works identically in dev and production.
+// Server-side (SSR/SSG): must use an absolute URL; defaults to VPS_URL.
+// Override both with NEXT_PUBLIC_API_BASE, e.g. http://localhost:8088 for a local API.
 const VPS_URL = "https://prices.grimwald.xyz";
 const envBase = process.env.NEXT_PUBLIC_API_BASE;
-export const API_BASE: string = envBase
-    ? envBase
-    : process.env.NODE_ENV === "development" && typeof window !== "undefined"
-        ? ""        // dev + browser only: use Next.js proxy
-        : VPS_URL;  // production, or server-side: always use absolute URL
+export const API_BASE: string = envBase || (typeof window === "undefined" ? VPS_URL : "");
 
 export interface Category {
     id: number;
