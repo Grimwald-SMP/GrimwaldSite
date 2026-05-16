@@ -9,7 +9,9 @@ export default function Navbar() {
         {text: 'Home', href: '/'},
         {text: 'About', href: '/about'},
         {text: 'Rules', href: '/rules'},
+        {text: 'Price Index', href: '/prices'},
         {text: 'Timeline', href: '/timeline'},
+        {text: 'Worlds', href: '/worlds'},
     ]
 
     const navButtons = [
@@ -26,7 +28,7 @@ export default function Navbar() {
                 <ul className="menu menu-lg lg:menu-horizontal space-x-2 hidden lg:flex">
                     {navLinks.map((button, index) => (
                         <li key={index}><Link href={button.href}
-                                              className="btn btn-ghost btn-neutral">{button.text}</Link>
+                                              className="btn btn-ghost">{button.text}</Link>
                         </li>
                     ))}
                 </ul>
