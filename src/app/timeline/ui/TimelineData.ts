@@ -541,7 +541,7 @@ export const timelineData: Record<string, SeasonData> = {
       {
         date: "Early May 2024",
         title: "Less Activity",
-        description: "Due exams and stuff going on irl for many players the server activity begins to decline a bit so not much happens in this period."
+        description: "Due to exams and stuff going on irl for many players the server activity begins to decline a bit so not much happens in this period."
       },
       {
         title: "Projects Finished",
@@ -646,58 +646,55 @@ export const timelineData: Record<string, SeasonData> = {
       }
     ]
   },
-  // Just a rough plan for now
   season21: {
     background: "/timeline/S21Background.png",
     events: [
       {
-        date: "February 7th 2025"
+        date: "February 7th 2025",
         title: "Season 21 Begins",
-        description: "After a slight break, interest in the server begins to rise again, so a new season is launched."
+        description: "After a slight break, interest in the server begins to rise again, so a new season was launched."
       },
       {
-        date: "May "
+        date: "May 6th 2025",
         title: "Ownership Transferred",
-        description: "One of the server owners decided to step back from their position and hand over ownership to two new owners. One that will focus on the technical side and running the server and one that will focus on the community side of the server."
+        description: "One of the server co-founders decided to step back from their position as owner, and hand over ownership to two new owners. One that will focus on the technical side and running the server and one that will focus on the community side of the server."
       },
       {
-        title: "Builds + CTF",
-        description: ""
+        date: "Mid May 2025",
+        title: "Activity Boost",
+        description: "With summer beginning the season saw more players, who had been unable to play earlier in the year starting to play."
       },
       {
-        title: "First CTF Games",
-        description: "The Capture The Flag game is finished and hosts a couple games."
+        date: "May 24th 2025",
+        title: "First CTF 2 Games",
+        description: "The Capture The Flag game is finished and hosts a couple games. This version of Capture The Flag was a spin on the first version from Season 18 but this time included power up cards which players could use to acquire better gear or to manipulate the map to gain a competitive advantage.",
+        image: "/timeline/CTF2.png"
       },
       {
         title: "Bases",
-        description: "" // Describe some of the prominent bases that were made
-      },
-      {
-        title: "Activity dies down a bit",
-        description: ""
-      },
-      {
-        title: "Activity goes back up",
-        description: ""
+        description: "This season also saw the construction of some great bases. Including a medieval town, a giant boulder, a castle and a black hole.",
+        image: "/timeline/S21Base.png"
       },
       {
         title: "Black Hole Forge Game",
-        description: ""
+        description: "A new 2 player co-op game was created, which saw players work together to create a black hole by completing a custom crafting tree. Crafting items were acquired through a series of mini-games and puzzles throughout the game."
       },
       {
         date: "September 14th 2025",
-        title: "5 Year anniversary",
+        title: "Five Year Anniversary!",
         description: "The server celebrates it's 5th anniversary"
       },
       {
-        title: "Business District and GrimScraps",
-        description: "TODO describe opening event (I missed it)... at the end of the event a new currency known as GrimScraps was introduced. Grimscraps were backed by rare items and specifically designed to improve the economy, however not all players were on board with this idea. Some players even denounced this new currency and refused to ever use it."
-        //video: ?
+        date: "November 12th 2025",
+        title: "Piston Bolt Project",
+        description: "An ambitious new infrastructure project is started on the server which sees the construction of a massive underground transportation network that allows players to select a destination and then sends them there at high speeds.",
+        video: "https://www.youtube.com/watch?v=Yu5qt1dBmlU"
       },
       {
-        title: "Piston Bolt Project",
-        description: ""
-        //video: ?
+        date: "November 16th 2025",
+        title: "Business District and GrimScraps",
+        description: "TODO describe opening event (I missed it)... at the end of the event a new currency known as GrimScraps was introduced. Grimscraps were backed by rare items and specifically designed to improve the economy, however not all players were on board with this idea. Some players even denounced this new currency and refused to ever use it.",
+        video: "https://www.youtube.com/watch?v=XhZsRE99MBs"
       },
       {
         date: "February 28th 2026",
