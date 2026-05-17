@@ -12,13 +12,13 @@ export default async function Page() {
     const worlds: World[] = await getAvailableWorlds();
 
     return (
-        <section className="w-full flex flex-col items-center px-4 py-16 md:py-20">
+        <section className="w-full flex flex-col items-center px-6 py-16">
             {/* Header */}
-            <div className="flex flex-col items-center text-center gap-3 mb-8">
-                <h1 className="text-3xl md:text-5xl font-bold text-primary">
+            <div className="flex flex-col items-center text-center gap-3 mb-6">
+                <h1 className="text-6xl font-bold text-primary">
                     Grimwald Worlds
                 </h1>
-                <p className="text-base-content/70 max-w-md leading-relaxed">
+                <p className="text-base-content/60 max-w-md text-md leading-relaxed">
                     Download past season world files to explore, archive, or
                     revisit your favourite builds.
                 </p>

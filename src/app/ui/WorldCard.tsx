@@ -13,7 +13,7 @@ export default function WorldCard({
     downloadUrl,
 }: WorldCardProps) {
     return (
-        <div className="card card-border border-neutral border-2 bg-base-200 shadow-sm flex flex-col">
+        <div className="card card-border border-neutral border-3 bg-base-200 shadow-sm flex flex-col">
             {/* Thumbnail */}
             {imageUrl ? (
                 <figure className="relative w-full aspect-video overflow-hidden rounded-t-xl">

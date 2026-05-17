@@ -11,15 +11,23 @@ export default function FABTop() {
     };
 
     return (
-        <div className="fixed bottom-4 right-24 m-4 z-40">
-            <button
-                type="button"
-                className="btn btn-lg btn-circle btn-secondary shadow-lg"
-                onClick={scrollToTop}
-                aria-label="Scroll to top"
-            >
-                <ArrowUpFromDot/>
-            </button>
+        <div>
+            <div className="fixed bottom-4 right-20 m-4 z-50">
+                <div 
+                    tabIndex={0} 
+                    role="button" 
+                    className="btn btn-lg btn-circle btn-secondary"
+                    onClick={scrollToTop}
+                    onKeyDown={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            scrollToTop();
+                        }
+                    }}
+                >
+                    <a><ArrowUpFromDot /></a>
+                </div>
+            </div>
         </div>
     )
 }

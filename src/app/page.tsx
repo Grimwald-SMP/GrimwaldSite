@@ -55,16 +55,14 @@ export default function Home() {
         <div className="min-h-screen flex flex-col items-center">
             {/* Hero */}
             <section
-                className="w-full flex flex-col items-center justify-center text-center gap-4 py-16 md:py-24 px-4 bg-neutral-200"
+                className="w-full flex flex-col mx-fill items-center justify-center text-center gap-4 py-12 md:py-20 bg-neutral-200"
             >
-                <h1 className="text-3xl md:text-5xl font-bold text-neutral-content leading-tight">
-                    Quality Members, <br/>Quality Server
+                <h1 className="text-3xl md:text-5xl font-bold text-neutral-content">Quality Members, <br/>Quality Server
                 </h1>
-                <p className="text-base md:text-lg max-w-xl text-neutral-content/80">
-                    Grimwald SMP, a Whitelist-only server that focuses on quality members over the quantity of members.
-                    Apply now to experience our welcoming community of passionate players!
-                </p>
-                <div className="flex gap-3 mt-4">
+                <p className="text-md md:text-lg px-4 max-w-sm md:max-w-xl">Grimwald SMP, a Whitelist-only server that
+                    focuses on quality members over the quantity of members. Apply now to experience our welcoming
+                    community of passionate players!</p>
+                <div className="flex gap-4 mt-2">
                     <a href="/about" className="btn btn-dash btn-secondary">Learn More</a>
                     <a href="/apply" className="btn btn-primary">Apply Now</a>
                 </div>
@@ -72,25 +70,25 @@ export default function Home() {
 
             {/* Features */}
             <section id="features"
-                     className="w-full flex flex-col items-center justify-center text-center gap-4 py-16 md:py-20 px-4">
-                <h2 className="text-2xl md:text-3xl text-neutral-content font-semibold">What makes us different?</h2>
-                <div className="w-full max-w-6xl grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 pt-8 md:pt-10">
+                     className="flex flex-col items-center justify-center text-center gap-4 py-10 md:py-14">
+                <h1 className="text-3xl md:text-4xl text-neutral-content font-semibold">What makes us different?</h1>
+                <div className="max-w-6xl px-4 grid grid-cols-1 gap-8 md:grid-cols-2 py-8 md:py-10">
                     {features.map((feature) => (
                         <div key={feature.title}
-                             className="card card-border border-neutral border-2 bg-base-200 shadow-sm">
+                             className="card card-border border-neutral-200 border-3 bg-base-200 w-80 md:w-90 shadow-sm">
                             <figure>
-                                <Image
-                                    src={feature.image}
+                                <Image 
+                                    src={feature.image} 
                                     alt={feature.title}
                                     width={360}
                                     height={240}
                                     loading="lazy"
-                                    className="object-cover w-full aspect-video"
+                                    className="object-cover"
                                 />
                             </figure>
                             <div className="card-body">
-                                <h3 className="card-title text-lg">{feature.title}</h3>
-                                <p className="text-left text-sm text-base-content/80">{feature.description}</p>
+                                <h2 className="card-title">{feature.title}</h2>
+                                <p className="text-left">{feature.description}</p>
                             </div>
                         </div>
                     ))}
@@ -99,22 +97,19 @@ export default function Home() {
 
             {/* Counters */}
             <section
-                className="w-full flex flex-col bg-base-200 items-center justify-center text-center gap-4 py-16 md:py-20 px-4">
-                <h2 className="text-2xl md:text-3xl text-neutral-content font-semibold">Current Season</h2>
-                <div className="max-w-xl space-y-3 text-base-content/80">
-                    <p>Grimwald SMP has been around since 2020, starting off as a group of friends with more people joining throughout the years.</p>
-                    <p>We are currently on <span className="font-semibold text-primary">Season 22</span>! We are expecting this season to go for about a year - like the previous season 21.</p>
+                className="w-full flex flex-col bg-base-200 items-center justify-center text-center gap-4 py-10 md:py-14">
+                <h1 className="text-3xl md:text-4xl text-neutral-content font-semibold">Current Season</h1>
+                <div className="px-4">
+                    <p className="max-w-sm pb-4">Grimwald SMP has been around since 2020, starting off as a group of friends with more people joining throughout the years.</p>
+                    <p className="max-w-sm">We are currently on <span
+                        className="font-semibold text-neutral-50">Season 22</span>! We are expecting this season to go for about a year - like the previous season 21.</p>
                 </div>
 
-                <div className="pt-6 flex flex-col items-center justify-center gap-6">
-                    <div className="flex flex-col items-center gap-3">
-                        <h3 className="text-lg md:text-xl text-neutral-50 font-semibold uppercase tracking-wide">Season Age</h3>
-                        <CountUp startEpoch={1772380800}/>
-                    </div>
-                    <div className="flex flex-col items-center gap-3">
-                        <h3 className="text-lg md:text-xl text-neutral-50 font-semibold uppercase tracking-wide">Server Age</h3>
-                        <CountUp startEpoch={1600095600}/>
-                    </div>
+                <div className="pt-5 flex flex-col items-center justify-center space-y-4">
+                    <h3 className="text-2xl text-neutral-50 font-semibold">Season Age</h3>
+                    <CountUp startEpoch={1772380800}/>
+                    <h3 className="text-2xl text-neutral-50 font-semibold">Server Age</h3>
+                    <CountUp startEpoch={1600095600}/>
                 </div>
             </section>
         </div>
