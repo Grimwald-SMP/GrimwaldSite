@@ -14,14 +14,14 @@ export default function ServerIPBlock() {
     };
 
     return (
-        <div className="inline-flex items-center gap-1 bg-base-300 border border-neutral rounded-lg pl-3 pr-1 py-1.5 font-mono text-sm shadow-sm">
-            <code className="text-base-content">{serverIP}</code>
+        <div className="flex items-center gap-1 bg-neutral-200 rounded-lg pl-2 py-2 font-mono text-sm shadow-sm">
+            <code>{serverIP}</code>
             <button
                 onClick={handleCopy}
                 className="btn btn-xs btn-ghost"
-                aria-label={copied ? "Server IP copied" : "Copy server IP"}
+                aria-label="Copy server IP"
             >
-                {copied ? <Check size={16} className="text-success" /> : <Clipboard size={16} />}
+                {copied ? <Check size={16} /> : <Clipboard size={16} />}
             </button>
         </div>
     );

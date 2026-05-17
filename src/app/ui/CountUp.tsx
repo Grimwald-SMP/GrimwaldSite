@@ -30,21 +30,21 @@ export default function CountUp({startEpoch}: { startEpoch: number }) {
     const seconds = elapsed % secondsInMinute;
 
     return (
-        <div className="grid grid-flow-col gap-3 md:gap-4 text-center auto-cols-max">
+        <div className="grid grid-flow-col gap-2 md:gap-5 text-center auto-cols-max">
             {[
                 {label: "years", value: years, digits: 1},
                 {label: "months", value: months, digits: 2},
                 {label: "days", value: days, digits: 2},
                 {label: "hours", value: hours, digits: 2},
-                {label: "minutes", value: minutes, digits: 2},
-                {label: "seconds", value: seconds, digits: 2},
+                {label: "min", value: minutes, digits: 2},
+                {label: "sec", value: seconds, digits: 2},
             ].map(({label, value, digits}) => {
                 if (value === 0) return null;
 
                 return (
                     <div
                         key={label}
-                        className="flex flex-col items-center px-3 py-2 bg-neutral rounded-box text-neutral-content min-w-16"
+                        className="flex flex-col p-2 bg-neutral rounded-box text-neutral-content"
                     >
                           <span className="countdown font-mono text-3xl md:text-5xl">
                               <span
@@ -55,7 +55,7 @@ export default function CountUp({startEpoch}: { startEpoch: number }) {
                               {value}
                               </span>
                           </span>
-                          <span className="text-xs uppercase tracking-wider text-neutral-content/70 mt-1">{label}</span>
+                          {label}
                     </div>
             )})}
         </div>

@@ -23,8 +23,8 @@ export default function Footer() {
     }
 
     return (
-        <div className="bg-base-300 px-6 md:px-12 lg:px-20 py-10">
-            <footer className="footer sm:footer-horizontal gap-10 md:gap-16 max-w-7xl mx-auto">
+        <div className="bg-base-300 p-10">
+            <footer className="footer sm:footer-horizontal space-x-20 px-20">
                 <aside>
                     <Image src="/Grimwald.png" alt="Grimwald Logo" height={100} width={100}/>
                     <p className="font-semibold text-neutral-content">Grimwald SMP</p>
@@ -41,8 +41,8 @@ export default function Footer() {
                     </nav>
                 ))}
             </footer>
-            <aside className="flex justify-center footer pt-8 text-base-content/60 text-sm">
-                <p>Copyright © {new Date().getFullYear()} - All rights reserved</p>
+            <aside className="flex justify-center footer pt-6">
+                <p>Copyright © {new Date().getFullYear()} - All right reserved</p>
             </aside>
         </div>
     )
