@@ -1,18 +1,18 @@
 export default function page() {
     return (
         <section className="w-full flex flex-col items-center max-w-3xl mx-auto px-6 py-16 text-base">
-            <h1 className="text-4xl font-bold text-center text-secondary mb-2">
+            <h1 className="text-3xl md:text-5xl font-bold text-center text-primary mb-3">
                 Server Rules
             </h1>
-            <p className="max-w-md text-center text-base-content/80 mb-12">
+            <p className="max-w-md text-center text-base-content/70 mb-12">
                 These rules help maintain a safe and enjoyable environment for
                 all players. By joining this server, you agree to abide by these
                 guidelines.
             </p>
 
             <div className="space-y-4">
-                <div className="card bg-base-200 shadow-md p-6 border-neutral-200 border-2">
-                    <h2 className="text-lg font-semibold mb-2 text-primary/90">
+                <div className="card bg-base-200 shadow-sm p-6 border-neutral border-2">
+                    <h2 className="text-xl font-semibold mb-2 text-primary">
                         1. Age Requirement
                     </h2>
                     <p>
@@ -21,8 +21,8 @@ export default function page() {
                     </p>
                 </div>
 
-                <div className="card bg-base-200 shadow-md p-6 border-neutral-200 border-2">
-                    <h2 className="text-lg font-semibold mb-2 text-primary/90">
+                <div className="card bg-base-200 shadow-sm p-6 border-neutral border-2">
+                    <h2 className="text-xl font-semibold mb-2 text-primary">
                         2. Respect & Community Conduct
                     </h2>
                     <ul className="list-disc list-inside space-y-1">
@@ -39,8 +39,8 @@ export default function page() {
                     </ul>
                 </div>
 
-                <div className="card bg-base-200 shadow-md p-6 border-neutral-200 border-2">
-                    <h2 className="text-lg font-semibold mb-2 text-primary/90">
+                <div className="card bg-base-200 shadow-sm p-6 border-neutral border-2">
+                    <h2 className="text-xl font-semibold mb-2 text-primary">
                         3. Griefing & Theft
                     </h2>
                     <ul className="list-disc list-inside space-y-1">
@@ -57,8 +57,8 @@ export default function page() {
                     </p>
                 </div>
 
-                <div className="card bg-base-200 shadow-md p-6 border-neutral-200 border-2">
-                    <h2 className="text-lg font-semibold mb-2 text-primary/90">
+                <div className="card bg-base-200 shadow-sm p-6 border-neutral border-2">
+                    <h2 className="text-xl font-semibold mb-2 text-primary">
                         4. Building & Placement
                     </h2>
                     <p>
@@ -80,8 +80,8 @@ export default function page() {
                     </ul>
                 </div>
 
-                <div className="card bg-base-200 shadow-md p-6 border-neutral-200 border-2">
-                    <h2 className="text-lg font-semibold mb-2 text-primary/90">
+                <div className="card bg-base-200 shadow-sm p-6 border-neutral border-2">
+                    <h2 className="text-xl font-semibold mb-2 text-primary">
                         5. Fair Play & Cheating
                     </h2>
                     <ul className="list-disc list-inside space-y-1">
@@ -101,8 +101,8 @@ export default function page() {
                     </ul>
                 </div>
 
-                <div className="card bg-base-200 shadow-md p-6 border-neutral-200 border-2">
-                    <h2 className="text-lg font-semibold mb-2 text-primary/90">
+                <div className="card bg-base-200 shadow-sm p-6 border-neutral border-2">
+                    <h2 className="text-xl font-semibold mb-2 text-primary">
                         6. Player vs Player
                     </h2>
                     <p>
@@ -115,8 +115,8 @@ export default function page() {
                     </p>
                 </div>
 
-                <div className="card bg-base-200 shadow-md p-6 border-neutral-200 border-2">
-                    <h2 className="text-lg font-semibold mb-2 text-primary/90">
+                <div className="card bg-base-200 shadow-sm p-6 border-neutral border-2">
+                    <h2 className="text-xl font-semibold mb-2 text-primary">
                         7. Performance
                     </h2>
                     <ul className="list-disc list-inside space-y-1">
@@ -140,8 +140,8 @@ export default function page() {
                     </ul>
                 </div>
 
-                <div className="card bg-base-200 shadow-md p-6 border-neutral-200 border-2">
-                    <h2 className="text-lg font-semibold mb-2 text-primary/90">
+                <div className="card bg-base-200 shadow-sm p-6 border-neutral border-2">
+                    <h2 className="text-xl font-semibold mb-2 text-primary">
                         8. Duping & Automation
                     </h2>
                     <ul className="list-disc list-inside space-y-1">
@@ -154,8 +154,8 @@ export default function page() {
                     </ul>
                 </div>
 
-                <div className="card bg-base-200 shadow-md p-6 border-neutral-200 border-2">
-                    <h2 className="text-lg font-semibold mb-2 text-primary/90">
+                <div className="card bg-base-200 shadow-sm p-6 border-neutral border-2">
+                    <h2 className="text-xl font-semibold mb-2 text-primary">
                         9. Invitations & Whitelist
                     </h2>
                     <p>
@@ -168,8 +168,8 @@ export default function page() {
                     </p>
                 </div>
 
-                <div className="card bg-base-200 shadow-md p-6 border-neutral-200 border-2">
-                    <h2 className="text-lg font-semibold mb-2 text-primary/90">
+                <div className="card bg-base-200 shadow-sm p-6 border-neutral border-2">
+                    <h2 className="text-xl font-semibold mb-2 text-primary">
                         10. Price-floor
                     </h2>
                     <p>(NEW RULE)</p>
@@ -188,8 +188,8 @@ export default function page() {
                     </p>
                 </div>
 
-                <div className="card bg-base-200 shadow-md p-6 border-neutral-200 border-2">
-                    <h2 className="text-lg font-semibold mb-2 text-primary/90">
+                <div className="card bg-base-200 shadow-sm p-6 border-neutral border-2">
+                    <h2 className="text-xl font-semibold mb-2 text-primary">
                         11. Farm inactivity
                     </h2>
                     <p>(NEW RULE)</p>
@@ -213,8 +213,8 @@ export default function page() {
                     </ul>
                 </div>
 
-                <div className="card bg-base-200 shadow-md p-6 border-neutral-200 border-2">
-                    <h2 className="text-lg font-semibold mb-2 text-primary/90">
+                <div className="card bg-base-200 shadow-sm p-6 border-neutral border-2">
+                    <h2 className="text-xl font-semibold mb-2 text-primary">
                         Final Points
                     </h2>
                     <ul className="list-disc list-inside space-y-1">

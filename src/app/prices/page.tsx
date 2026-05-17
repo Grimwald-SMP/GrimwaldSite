@@ -24,17 +24,17 @@ export default async function PricesPage() {
     }
 
     return (
-        <main className="min-h-screen bg-base-300 px-4 py-10">
-            <div className="max-w-6xl mx-auto space-y-6">
-                <div>
-                    <h1 className="text-4xl font-bold text-primary">
+        <main className="min-h-screen bg-base-300 px-4 py-12 md:py-16">
+            <div className="max-w-6xl mx-auto space-y-8">
+                <div className="space-y-2">
+                    <h1 className="text-3xl md:text-5xl font-bold text-primary">
                         Price Index
                     </h1>
-                    <p className="mt-2 text-base-content/60 max-w-2xl">
+                    <p className="text-base-content/70 max-w-2xl">
                         Community-maintained reference prices for the Grimwald
                         SMP economy.
                     </p>
-                    <p className="mt-2 text-base-content/60 max-w-2xl">
+                    <p className="text-base-content/60 max-w-2xl text-sm">
                         Currently the server is implementing a price floor, where items can&apos;t be sold 80% below the listed price - this is to prevent prices from going too low.
                     </p>
                 </div>

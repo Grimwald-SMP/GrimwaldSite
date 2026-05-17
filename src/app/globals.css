@@ -14,17 +14,17 @@
     --color-accent-content: #FFFFFF;
 
     --color-neutral-50: #b87749;
-    --color-neutral: #593821;
-    --color-neutral-200: #2e2721;
+    --color-neutral: #4f321d;
+    --color-neutral-200: #261f1a;
 
-    --color-base-100: #1c1c1c;
-    --color-base-200: #171717;
-    --color-base-300: #121212;
+    --color-base-100: #141414;
+    --color-base-200: #0f0f0f;
+    --color-base-300: #0a0a0a;
     --color-base-content: #FFFFFF;
 }
 
 @theme {
-    --color-base-50: #262626;
+    --color-base-50: #1c1c1c;
 }
 
 /* Ember background - subtle floating particles rising upward */

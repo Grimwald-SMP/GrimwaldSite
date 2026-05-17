@@ -60,16 +60,16 @@ export default function Navbar() {
 
             <div className="navbar-end">
                 <div className="dropdown dropdown-end">
-                    <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+                    <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden" aria-label="Open navigation menu">
                         <TextAlignEnd/>
                     </div>
                     <ul
                         tabIndex={-1}
-                        className="menu menu-md dropdown-content text-left mt-3 p-2 shadow bg-base-200/98 w-45 rounded-lg border-2 border-neutral"
+                        className="menu menu-md dropdown-content text-left mt-3 p-2 shadow bg-base-200/98 w-56 rounded-lg border-2 border-neutral z-50"
                     >
                         {allLinks.map((button, index) => (
                             <li key={index}>
-                                <Link href={button.href} className={`btn btn-ghost btn-neutral`}>{button.text}</Link>
+                                <Link href={button.href} className="btn btn-ghost btn-neutral justify-start">{button.text}</Link>
                             </li>
                         ))}
                     </ul>
