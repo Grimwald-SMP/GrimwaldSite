@@ -25,5 +25,102 @@
 
 @theme {
     --color-base-50: #262626;
+}
 
+/* Ember background - subtle floating particles rising upward */
+.ember {
+    position: absolute;
+    bottom: -10px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 122, 0, 0.9) 0%, rgba(255, 122, 0, 0.3) 60%, rgba(255, 122, 0, 0) 100%);
+    box-shadow: 0 0 6px rgba(255, 122, 0, 0.5), 0 0 12px rgba(255, 122, 0, 0.25);
+    opacity: 0;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    will-change: transform, opacity;
+}
+
+/* Three sway variants for natural variation in horizontal drift */
+.ember-sway-1 {
+    animation-name: ember-rise-1;
+}
+
+.ember-sway-2 {
+    animation-name: ember-rise-2;
+}
+
+.ember-sway-3 {
+    animation-name: ember-rise-3;
+}
+
+@keyframes ember-rise-1 {
+    0% {
+        transform: translateY(0) translateX(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: var(--ember-opacity, 0.25);
+    }
+    50% {
+        transform: translateY(-55vh) translateX(12px);
+        opacity: var(--ember-opacity, 0.25);
+    }
+    90% {
+        opacity: var(--ember-opacity, 0.25);
+    }
+    100% {
+        transform: translateY(-110vh) translateX(-8px);
+        opacity: 0;
+    }
+}
+
+@keyframes ember-rise-2 {
+    0% {
+        transform: translateY(0) translateX(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: var(--ember-opacity, 0.25);
+    }
+    50% {
+        transform: translateY(-55vh) translateX(-18px);
+        opacity: var(--ember-opacity, 0.25);
+    }
+    90% {
+        opacity: var(--ember-opacity, 0.25);
+    }
+    100% {
+        transform: translateY(-110vh) translateX(6px);
+        opacity: 0;
+    }
+}
+
+@keyframes ember-rise-3 {
+    0% {
+        transform: translateY(0) translateX(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: var(--ember-opacity, 0.25);
+    }
+    35% {
+        transform: translateY(-40vh) translateX(8px);
+        opacity: var(--ember-opacity, 0.25);
+    }
+    65% {
+        transform: translateY(-75vh) translateX(-10px);
+        opacity: var(--ember-opacity, 0.25);
+    }
+    100% {
+        transform: translateY(-110vh) translateX(4px);
+        opacity: 0;
+    }
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    [data-embers] .ember {
+        animation: none !important;
+        opacity: 0 !important;
+    }
 }
