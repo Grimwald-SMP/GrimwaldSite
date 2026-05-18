@@ -31,6 +31,10 @@ function parseWorldsJson(data: RawWorldData[]): World[] {
         description: item.description,
         date: item.date,
         image: item.image ? url(item.image) : undefined,
+        version: item.version,
+        modded: item.modded,
+        modlist: item.modlist,
+        link: item.link,
     }));
 }
 
@@ -39,7 +43,7 @@ function url(path: string): string {
 }
 
 function fetchStatic(path: string): Promise<Response> {
-    return fetch(url(path));
+    return fetch(url(path), { next: { revalidate: 3600 } });
 }
 
 export async function getAvailableWorlds(): Promise<World[]> {

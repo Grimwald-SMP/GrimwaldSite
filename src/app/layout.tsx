@@ -4,6 +4,8 @@ import "./globals.css";
 import Navbar from "@/app/ui/Navbar";
 import Footer from "@/app/ui/Footer";
 import FABSpeedDial from "@/app/ui/FABSpeedDial";
+import EmbersBackground from "@/app/ui/EmbersBackground";
+import {BackgroundProvider} from "@/app/lib/backgroundContext";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -30,10 +32,12 @@ export default function RootLayout({
         <body
             className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}
         >
-        <Navbar/>
-        {children}
-        <FABSpeedDial/>
-
+        <EmbersBackground/>
+        <BackgroundProvider>
+            <Navbar/>
+            {children}
+            <FABSpeedDial/>
+        </BackgroundProvider>
         <Footer/>
         </body>
         </html>

@@ -6,6 +6,8 @@ import {
 } from "@/app/lib/worlds";
 import WorldCard from "@/app/ui/WorldCard";
 
+export const revalidate = 3600;
+
 export default async function Page() {
     const worlds: World[] = await getAvailableWorlds();
 
