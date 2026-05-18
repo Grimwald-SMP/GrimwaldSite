@@ -668,7 +668,7 @@ export const timelineData: Record<string, SeasonData> = {
         date: "May 24th 2025",
         title: "First CTF 2 Games",
         description: "The Capture The Flag game is finished and hosts a couple games. This version of Capture The Flag was a spin on the first version from Season 18 but this time included power up cards which players could use to acquire better gear or to manipulate the map to gain a competitive advantage.",
-        image: "/timeline/CTF2.png"
+        image: "/timeline/S21CTF2.png"
       },
       {
         title: "Bases",
@@ -693,7 +693,7 @@ export const timelineData: Record<string, SeasonData> = {
       {
         date: "November 16th 2025",
         title: "Business District and GrimScraps",
-        description: "TODO describe opening event (I missed it)... at the end of the event a new currency known as GrimScraps was introduced. Grimscraps were backed by rare items and specifically designed to improve the economy, however not all players were on board with this idea. Some players even denounced this new currency and refused to ever use it.",
+        description: "An new district was created and an event was held for the grand opening, the event included an elytra race, sumo tournament, city tour and ice boat race. At the end of the event the creators of the district explained how they felt that diamonds had lost their value and introduced a new currency known as GrimScraps. Grimscraps were backed by valuable items, ensuring they always held value, however not all players were on board with this idea. Some players even denounced this new currency and refused to use it.",
         video: "https://www.youtube.com/watch?v=XhZsRE99MBs"
       },
       {
