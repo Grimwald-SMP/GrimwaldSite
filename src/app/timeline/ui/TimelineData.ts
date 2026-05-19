@@ -541,7 +541,7 @@ export const timelineData: Record<string, SeasonData> = {
       {
         date: "Early May 2024",
         title: "Less Activity",
-        description: "Due exams and stuff going on irl for many players the server activity begins to decline a bit so not much happens in this period."
+        description: "Due to exams and stuff going on irl for many players the server activity begins to decline a bit so not much happens in this period."
       },
       {
         title: "Projects Finished",
@@ -606,7 +606,7 @@ export const timelineData: Record<string, SeasonData> = {
         image: "/timeline/S19Gaming.png"
       },
       {
-        date: "August 14th 2024",
+        date: "September 14th 2024",
         title: "Four Year Anniversary!",
         description: "The server celebrates its fourth anniversary."
       },
@@ -643,6 +643,63 @@ export const timelineData: Record<string, SeasonData> = {
         date: "December 20th 2024",
         title: "Season S20 Ends",
         description: "Activity had dropped off significantly during December, with only a few players still active and the server sitting empty a lot of the time due to many players being too busy to play. We opted to end the season just shy of 2 months and take a break over the Christmas period."
+      }
+    ]
+  },
+  season21: {
+    background: "/timeline/S21Background.png",
+    events: [
+      {
+        date: "February 7th 2025",
+        title: "Season 21 Begins",
+        description: "After a slight break, interest in the server begins to rise again, so a new season was launched."
+      },
+      {
+        date: "May 6th 2025",
+        title: "Ownership Transferred",
+        description: "One of the server co-founders decided to step back from their position as owner, and hand over ownership to two new owners. One that will focus on the technical side and running the server and one that will focus on the community side of the server."
+      },
+      {
+        date: "Mid May 2025",
+        title: "Activity Boost",
+        description: "With summer beginning the season saw more players, who had been unable to play earlier in the year starting to play."
+      },
+      {
+        date: "May 24th 2025",
+        title: "First CTF 2 Games",
+        description: "The Capture The Flag game is finished and hosts a couple games. This version of Capture The Flag was a spin on the first version from Season 18 but this time included power up cards which players could use to acquire better gear or to manipulate the map to gain a competitive advantage.",
+        image: "/timeline/S21CTF2.png"
+      },
+      {
+        title: "Bases",
+        description: "This season also saw the construction of some great bases. Including a medieval town, a giant boulder, a castle and a black hole.",
+        image: "/timeline/S21Base.png"
+      },
+      {
+        title: "Black Hole Forge Game",
+        description: "A new 2 player co-op game was created, which saw players work together to create a black hole by completing a custom crafting tree. Crafting items were acquired through a series of mini-games and puzzles throughout the game."
+      },
+      {
+        date: "September 14th 2025",
+        title: "Five Year Anniversary!",
+        description: "The server celebrates it's 5th anniversary"
+      },
+      {
+        date: "November 12th 2025",
+        title: "Piston Bolt Project",
+        description: "An ambitious new infrastructure project is started on the server which sees the construction of a massive underground transportation network that allows players to select a destination and then sends them there at high speeds.",
+        video: "https://www.youtube.com/watch?v=Yu5qt1dBmlU"
+      },
+      {
+        date: "November 16th 2025",
+        title: "Business District and GrimScraps",
+        description: "An new district was created and an event was held for the grand opening, the event included an elytra race, sumo tournament, city tour and ice boat race. At the end of the event the creators of the district explained how they felt that diamonds had lost their value and introduced a new currency known as GrimScraps. Grimscraps were backed by valuable items, ensuring they always held value, however not all players were on board with this idea. Some players even denounced this new currency and refused to use it.",
+        video: "https://www.youtube.com/watch?v=XhZsRE99MBs"
+      },
+      {
+        date: "February 28th 2026",
+        title: "Season 21 Ends/D-Day Event",
+        description: "Season S21 ends after being online for over a year, making it our longest season to date. To commemorate the occasion we decided to revive our tradition of getting together to destroy everything on the current world before the new season starts."
       }
     ]
   }
